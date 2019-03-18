@@ -9,6 +9,7 @@ import java.io.FileInputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+
 /**
  * A class that tests automated pull requests using the jcabi github api.
  */
@@ -21,9 +22,8 @@ public class PullRequestAutomator {
 
     public static void main(String[] args) {
         try {
-            String oath = getOathKey();
-            System.out.println(oath);
-            createPullRequest("Testing automated pull requests", HEAD, BASE, COORDINATES, FILE_NAME, oath);
+            String password = getPassword();
+            createPullRequest("Testing automated pull requests", HEAD, BASE, COORDINATES, FILE_NAME, password);
         } catch (Exception e) {
             System.out.println("Couldn't retrieve oath");
         }
@@ -36,13 +36,17 @@ public class PullRequestAutomator {
      * @param head branch that we are currently working in.
      * @param base branch that we want to merge into.
      * @param repoCoordinates coordinates of repository.
-     * @param oath oath token (used for authentication with api).
+     * @param password password (used for authentication with api).
      */
-    private static void createPullRequest(String pullRequestName, String head, String base, String repoCoordinates, String path, String oath) {
-        Github github = new RtGithub(oath);
+    private static void createPullRequest(String pullRequestName, String head, String base, String repoCoordinates, String path, String password) {
+//        Github github = new RtGithub(oath);
+        Github github = new RtGithub("jmoh3", password);
         Repo repo = github.repos().get(
                 new Coordinates.Simple(repoCoordinates)
         );
+
+        System.out.println(repo.toString());
+        System.out.println(repo.issues());
 
         final String sha;
         Contents contents = repo.contents();
@@ -50,14 +54,18 @@ public class PullRequestAutomator {
         boolean exists = false;
 
         try {
-            exists = contents.exists(path, head);
+            exists = contents.exists("/src/com/example/GithubPullRequestTest.java", head);
+//            contents.get
+            System.out.println(contents.get("/src/com/example/GithubPullRequestTest.java", head).path());
         } catch (Exception e) {
-
+            System.out.println("Does not exist");
         }
 
-        File file = new File(path);
+        File file = new File("/Users/jackieoh/IdeaProjects/adventure/src/com/example/GithubPullRequestTest.java");
+        System.out.println("Can read file: " + file.canRead());
 
         if (exists) {
+            System.out.println("here");
 
             boolean success = commitAndPullRequest(repo, path, head, base, pullRequestName, file);
 
@@ -68,15 +76,15 @@ public class PullRequestAutomator {
             }
 
         } else {
-            System.out.println("Creating new file");
-
-            boolean success = commitAndPullNewFile(repo, path, head, base, pullRequestName, file);
-
-            if (success) {
-                System.out.println("Pull Request Successful");
-            } else {
-                System.out.println("Pull Request Unsuccessful");
-            }
+//            System.out.println("Creating new file");
+//
+//            boolean success = commitAndPullNewFile(repo, path, head, base, pullRequestName, file);
+//
+//            if (success) {
+//                System.out.println("Pull Request Successful");
+//            } else {
+//                System.out.println("Pull Request Unsuccessful");
+//            }
         }
     }
 
@@ -87,7 +95,7 @@ public class PullRequestAutomator {
      * @param changelog changelog.
      * @return String to be used for pull comment.
      */
-    private static String generatePullComment(String testName, String changelog) {
+    private static String generateComment(String testName, String changelog) {
         String title = "## What is the purpose for this change?";
 
         String purpose = "\n Fixing flaky test " +  testName;
@@ -108,7 +116,12 @@ public class PullRequestAutomator {
     private static String readFileAsString(String fileName) throws Exception
     {
         String data = "";
-        data = new String(Files.readAllBytes(Paths.get(fileName)));
+        try {
+            data = new String(Files.readAllBytes(Paths.get(fileName)));
+        } catch (Exception e) {
+            System.out.println(e);
+            System.out.println("HERE");
+        }
         return data;
     }
 
@@ -118,8 +131,8 @@ public class PullRequestAutomator {
      * @return oath key.
      * @throws Exception
      */
-    private static String getOathKey() throws Exception {
-        return readFileAsString("/Users/jackieoh/IdeaProjects/adventure/APIKey.txt");
+    private static String getPassword() throws Exception {
+        return readFileAsString("/Users/jackieoh/IdeaProjects/adventure/Password.txt");
     }
 
     /**
@@ -156,20 +169,22 @@ public class PullRequestAutomator {
      */
     private static boolean commitAndPullRequest(Repo repo, String path, String pullRequestName, String head, String base, File file) {
         try {
-            Content pathContent = repo.contents().get(path, head);
+            System.out.println(head);
+            System.out.println(repo.contents().get("/src/com/example/GithubPullRequestTest.java", "testGithubPR").path());
+            Content pathContent = repo.contents().get("/src/com/example/GithubPullRequestTest.java", "testGithubPR");
             final Content.Smart content = new Content.Smart(pathContent);
             String sha = content.sha();
 
-            byte[] fileContent = Files.readAllBytes(file.toPath());
+            byte[] fileContent = convertToByteArray(file);
 
             final String enc = Base64.encodeBase64String(content.decoded());
             RepoCommit newCommit = repo.contents().update(
                     path,
                     Json.createObjectBuilder()
-                            .add("message", "hello!")
+                            .add("message", "Committed new file!")
                             .add("content", enc)
                             .add("sha", sha)
-                            .add("branch", head)
+                            .add("branch", "testGithubPR")
                             .add(
                                     "committer",
                                     Json.createObjectBuilder()
@@ -178,6 +193,9 @@ public class PullRequestAutomator {
                             )
                             .build()
             );
+            System.out.println(newCommit.sha());
+
+
 
             Pulls pulls = repo.pulls();
 
@@ -186,6 +204,7 @@ public class PullRequestAutomator {
             }
 
         } catch (Exception e) {
+            System.out.println(e);
             return false;
         }
 
@@ -214,7 +233,7 @@ public class PullRequestAutomator {
                             .add("message", "hello!")
                             .add("content", enc)
                             .add("branch", head)
-                            .add("path", path)
+                            .add("path", "adventure/src/com/example/GithubPullRequestTest.java")
                             .build()
             );
 
@@ -226,7 +245,7 @@ public class PullRequestAutomator {
                             .add("message", "Added new file!")
                             .add("content", enc)
                             .add("sha", smartContent.sha())
-                            .add("branch", head)
+                            .add("branch", "testGithubPR")
                             .add(
                                     "committer",
                                     Json.createObjectBuilder()
@@ -235,6 +254,7 @@ public class PullRequestAutomator {
                             )
                             .build()
             );
+            System.out.println(newCommit.sha());
 
             Pulls pulls = repo.pulls();
             if (!generatePullComment(pulls, newCommit, head,  base, path, pullRequestName)) {
@@ -260,15 +280,17 @@ public class PullRequestAutomator {
      */
     public static boolean generatePullComment(Pulls pulls, RepoCommit newCommit, String head, String base, String path, String pullRequestName) {
         try {
-            Pull pullRequest = pulls.create(pullRequestName, head, base);
+            Pull pullRequest = pulls.create(pullRequestName, "testGithubPR", "master");
             PullComments comments = pullRequest.comments();
 
-            comments.post(generatePullComment("test", "change"), newCommit.sha(), path, 1);
+//            comments.post(generateComment("test", "change"), "", "/src/com/example/GithubPullRequestTest.java", 1);
 
         } catch (Exception e) {
             return false;
         }
         return true;
     }
+
+    // TODO - Pull request method
 
 }
