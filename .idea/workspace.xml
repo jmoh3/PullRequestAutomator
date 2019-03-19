@@ -2,11 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fbd40416-5ac0-480b-8e74-7109fd266708" name="Default Changelist" comment="Finished template of Automator and Patch classes">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_13_beta_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/PatchTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/PullRequestAutomator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PullRequestAutomator.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Automator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Automator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/PullRequestAutomator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/PullRequestAutomator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Patch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Patch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/PullRequestAutomator.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/Automator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/Automator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/PullRequestAutomator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/PullRequestAutomator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/Patch$Status.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/Patch$Status.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/Patch.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/Patch.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/PullRequestAutomator.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -40,7 +50,7 @@
         <counts>
           <entry key="class" value="3" />
           <entry key="gitignore" value="2" />
-          <entry key="java" value="6" />
+          <entry key="java" value="7" />
           <entry key="txt" value="6" />
           <entry key="xml" value="1" />
         </counts>
@@ -48,7 +58,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="3" />
-          <entry key="JAVA" value="6" />
+          <entry key="JAVA" value="7" />
           <entry key="PLAIN_TEXT" value="8" />
           <entry key="XML" value="1" />
         </counts>
@@ -56,14 +66,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="8" />
-          <entry key="java" value="3360" />
+          <entry key="java" value="4248" />
           <entry key="txt" value="144" />
           <entry key="xml" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="3360" />
+          <entry key="JAVA" value="4248" />
           <entry key="PLAIN_TEXT" value="152" />
           <entry key="XML" value="3" />
         </counts>
@@ -72,11 +82,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/Automator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="526">
-              <caret line="113" lean-forward="true" selection-start-line="113" selection-end-line="113" />
+            <state relative-caret-position="1036">
+              <caret line="96" column="28" selection-start-line="96" selection-start-column="28" selection-end-line="96" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -87,17 +97,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/PullRequestAutomator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="289" column="9" lean-forward="true" selection-start-line="289" selection-start-column="9" selection-end-line="289" selection-end-column="9" />
+            <state relative-caret-position="225">
+              <caret line="15" column="83" lean-forward="true" selection-start-line="15" selection-start-column="83" selection-end-line="15" selection-end-column="83" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -108,26 +109,33 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/Patch.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="37" lean-forward="true" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
+            <state relative-caret-position="236">
+              <caret line="53" column="21" lean-forward="true" selection-start-line="53" selection-start-column="21" selection-end-line="53" selection-end-column="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2097#2098#0" expanded="true" />
+                <element signature="e#2135#2136#0" expanded="true" />
+                <element signature="e#2170#2171#0" expanded="true" />
+                <element signature="e#2206#2207#0" expanded="true" />
+                <element signature="e#2240#2241#0" expanded="true" />
+                <element signature="e#2275#2276#0" expanded="true" />
+                <element signature="e#2310#2311#0" expanded="true" />
+                <element signature="e#2346#2347#0" expanded="true" />
+                <element signature="e#2379#2380#0" expanded="true" />
+                <element signature="e#2413#2414#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/example/PatchTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Password.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="12" selection-start-column="12" selection-end-column="12" />
+            <state relative-caret-position="390">
+              <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -163,11 +171,12 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/ApiKey.txt" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/Patch.java" />
         <option value="$PROJECT_DIR$/Password.txt" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/PullRequestAutomator.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/Automator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/Patch.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/example/PatchTest.java" />
       </list>
     </option>
   </component>
@@ -242,7 +251,7 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/jackieoh/IdeaProjects/PullRequestAutomator/src/main/java/com/example/PullRequestAutomator.java" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552886594887" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552967092526" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.40804598" />
@@ -260,7 +269,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.PatchTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.Main" />
       <module name="PullRequestAutomator" />
@@ -287,12 +296,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PatchTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PullRequestAutomator" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example" />
+      <option name="MAIN_CLASS_NAME" value="com.example.PatchTest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.PullRequestAutomator" />
       <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.PatchTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PatchTest" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.PullRequestAutomator" />
       </list>
@@ -323,7 +348,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2832618" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1695279" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -331,8 +356,8 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.19530103" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32891566" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.36626506" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -341,7 +366,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.20361446" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.031292517" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.030120483" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -388,17 +413,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/PullRequestAutomator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="157">
+          <caret line="229" lean-forward="true" selection-start-line="229" selection-end-line="229" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -409,10 +430,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/PullRequestAutomator.java">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="289" column="9" lean-forward="true" selection-start-line="289" selection-start-column="9" selection-end-line="289" selection-end-column="9" />
+        <state relative-caret-position="15">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/Automator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1036">
+          <caret line="96" column="28" selection-start-line="96" selection-start-column="28" selection-end-line="96" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="83" lean-forward="true" selection-start-line="15" selection-start-column="83" selection-end-line="15" selection-end-column="83" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -421,15 +459,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/Patch.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="37" lean-forward="true" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
+        <state relative-caret-position="236">
+          <caret line="53" column="21" lean-forward="true" selection-start-line="53" selection-start-column="21" selection-end-line="53" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2097#2098#0" expanded="true" />
+            <element signature="e#2135#2136#0" expanded="true" />
+            <element signature="e#2170#2171#0" expanded="true" />
+            <element signature="e#2206#2207#0" expanded="true" />
+            <element signature="e#2240#2241#0" expanded="true" />
+            <element signature="e#2275#2276#0" expanded="true" />
+            <element signature="e#2310#2311#0" expanded="true" />
+            <element signature="e#2346#2347#0" expanded="true" />
+            <element signature="e#2379#2380#0" expanded="true" />
+            <element signature="e#2413#2414#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/Automator.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/example/PatchTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="113" lean-forward="true" selection-start-line="113" selection-end-line="113" />
+        <state relative-caret-position="390">
+          <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

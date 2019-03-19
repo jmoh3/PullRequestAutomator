@@ -74,7 +74,7 @@ public class Automator {
             );
 
         } catch (Exception e) {
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
     }
 
@@ -92,7 +92,7 @@ public class Automator {
 
     /**
      * Generates commit and pull request for file that already exists in github repository.
-     * @return
+     * @return commit sha
      */
     public String commit() {
         try {
@@ -150,6 +150,7 @@ public class Automator {
             comments.post(this.pullComment, commitSha, this.repoPathToFile, 1);
 
         } catch (Exception e) {
+            e.printStackTrace();
             return false;
         }
         return true;
