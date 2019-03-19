@@ -13,6 +13,6 @@ public class Main {
                 "Jackie Oh",
                 "jmoh3@illinois.edu");
 
-        automator.commit();
+        automator.makePullRequest();
     }
 }

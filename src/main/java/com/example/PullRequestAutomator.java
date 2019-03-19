@@ -291,6 +291,4 @@ public class PullRequestAutomator {
         return true;
     }
 
-    // TODO - Pull request method
-
 }

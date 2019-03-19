@@ -78,15 +78,29 @@ public class Automator {
         }
     }
 
+    public boolean makePullRequest() {
+        String sha = commit();
+
+        if (sha != null) {
+            boolean success = pull(sha);
+
+            return success;
+        } else {
+            return false;
+        }
+    }
+
     /**
      * Generates commit and pull request for file that already exists in github repository.
+     * @return
      */
-    public boolean commit() {
+    public String commit() {
         try {
             File file = new File(this.absolutePathToFile);
 
             if (!file.canRead()) {
-                return false;
+                System.out.println("Cannot read file.");
+                return null;
             }
 
             Content pathContent = repo.contents().get(this.repoPathToFile, this.newBranch);
@@ -114,11 +128,30 @@ public class Automator {
                             .build()
             );
 
+            return newCommit.sha();
+
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
+        }
+    }
+
+    /**
+     * Makes a pull request.
+     *
+     * @return true if succeeds, false otherwise.
+     */
+    public boolean pull(String commitSha) {
+        try {
+            Pulls pulls = repo.pulls();
+            Pull pullRequest = pulls.create("Pull Request Name", "testGithubPR", "master");
+            PullComments comments = pullRequest.comments();
+
+            comments.post(this.pullComment, commitSha, this.repoPathToFile, 1);
+
+        } catch (Exception e) {
             return false;
         }
-
         return true;
     }
 
@@ -129,8 +162,7 @@ public class Automator {
      * @return String of contents of file.
      * @throws Exception
      */
-    private String readFileAsString(String fileName) throws Exception
-    {
+    private String readFileAsString(String fileName) throws Exception {
         String data = "";
         try {
             data = new String(Files.readAllBytes(Paths.get(fileName)));
@@ -160,4 +192,6 @@ public class Automator {
         }
         return fileBytes;
     }
+
+    // TODO - Pull request method
 }
