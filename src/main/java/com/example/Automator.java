@@ -19,6 +19,8 @@ public class Automator {
 
     private String pullComment;
 
+    private Patch patch;
+
     private Github github;
     private Repo repo;
 
@@ -58,6 +60,8 @@ public class Automator {
     Automator(Patch patch, String base, String repoCoordinates, String username, String pathToPasswordFile,
               String name, String email) {
 
+        this.patch = patch;
+
         this.absolutePathToFile = patch.getPathToFile();
         this.pullComment = patch.getPullRequestDescription();
         this.baseBranch = base;
@@ -84,6 +88,11 @@ public class Automator {
      * @return true if succeeded, false otherwise.
      */
     public boolean makePullRequest() {
+
+        if (this.patch != null) {
+            this.patch.applyPatch();
+        }
+
         String sha = commit();
 
         if (sha != null) {

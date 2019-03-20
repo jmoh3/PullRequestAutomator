@@ -1,8 +1,8 @@
 package com.example;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import org.apache.commons.io.FileUtils;
+
+import java.io.*;
 
 public class Patch {
 
@@ -11,6 +11,10 @@ public class Patch {
     private Status status;
 
     private String pathToFile;
+
+    private String diff;
+    private String pathToPatch;
+
     private String flaky;
     private String modified;
     private String polluter;
@@ -27,12 +31,27 @@ public class Patch {
 
         this.flaky = splitFileName[splitFileName.length - 1].replaceAll(".patch", "");
 
+        this.diff = "";
+
         BufferedReader reader;
 
         try {
             reader = new BufferedReader(new FileReader(contentFileName));
+
+            boolean readingDiff = false;
+
             String line = reader.readLine();
             while (line != null) {
+
+                if (readingDiff)  {
+                    this.diff += line + "\n";
+                    line = reader.readLine();
+                    continue;
+                }
+
+                if (line.equals("=========================="))  {
+                    readingDiff = true;
+                }
 
                 String[] splitString = line.split(": ");
 
@@ -86,6 +105,29 @@ public class Patch {
 
     public String getModified() {
         return this.modified;
+    }
+
+    public String getDiff() {
+        return this.diff;
+    }
+
+    /**
+     * Applies patch.
+     *
+     * @return true if succeeds, false otherwise.
+     */
+    public boolean applyPatch() {
+        if (this.diff.length() != 0) {
+            try {
+                FileUtils.writeStringToFile(new File(this.flaky + "modifiedPatch.patch"), this.diff);
+                Runtime.getRuntime().exec("patch <  " + this.flaky + "modifiedPatch.patch");
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return false;
     }
 
     public Status getStatus() {

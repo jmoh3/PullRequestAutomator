@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="fbd40416-5ac0-480b-8e74-7109fd266708" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Automator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Automator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Patch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Patch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/Automator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/Automator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/PatchTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/PatchTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/Patch.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/Patch.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -42,7 +39,7 @@
         <counts>
           <entry key="class" value="3" />
           <entry key="gitignore" value="2" />
-          <entry key="java" value="7" />
+          <entry key="java" value="9" />
           <entry key="txt" value="6" />
           <entry key="xml" value="1" />
         </counts>
@@ -50,7 +47,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="3" />
-          <entry key="JAVA" value="7" />
+          <entry key="JAVA" value="9" />
           <entry key="PLAIN_TEXT" value="8" />
           <entry key="XML" value="1" />
         </counts>
@@ -58,15 +55,15 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="8" />
-          <entry key="java" value="4859" />
-          <entry key="txt" value="192" />
+          <entry key="java" value="5632" />
+          <entry key="txt" value="287" />
           <entry key="xml" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="4859" />
-          <entry key="PLAIN_TEXT" value="200" />
+          <entry key="JAVA" value="5632" />
+          <entry key="PLAIN_TEXT" value="295" />
           <entry key="XML" value="3" />
         </counts>
       </usages-collector>
@@ -77,8 +74,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/Automator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="49" column="54" selection-start-line="49" selection-start-column="54" selection-end-line="49" selection-end-column="54" />
+            <state relative-caret-position="477">
+              <caret line="39" column="38" selection-start-line="39" selection-start-column="38" selection-end-line="39" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -98,35 +95,37 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/Patch.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="28" column="55" selection-start-line="28" selection-end-line="29" />
+            <state relative-caret-position="260">
+              <caret line="118" column="31" selection-start-line="118" selection-start-column="19" selection-end-line="118" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2097#2098#0" expanded="true" />
-                <element signature="e#2135#2136#0" expanded="true" />
-                <element signature="e#2209#2210#0" expanded="true" />
-                <element signature="e#2241#2242#0" expanded="true" />
-                <element signature="e#2170#2171#0" expanded="true" />
-                <element signature="e#2206#2207#0" expanded="true" />
-                <element signature="e#2240#2241#0" expanded="true" />
-                <element signature="e#2275#2276#0" expanded="true" />
-                <element signature="e#2310#2311#0" expanded="true" />
-                <element signature="e#2346#2347#0" expanded="true" />
-                <element signature="e#2379#2380#0" expanded="true" />
-                <element signature="e#2413#2414#0" expanded="true" />
+                <element signature="e#2767#2768#0" expanded="true" />
+                <element signature="e#2805#2806#0" expanded="true" />
+                <element signature="e#2837#2838#0" expanded="true" />
+                <element signature="e#2870#2871#0" expanded="true" />
+                <element signature="e#2905#2906#0" expanded="true" />
+                <element signature="e#2941#2942#0" expanded="true" />
+                <element signature="e#2975#2976#0" expanded="true" />
+                <element signature="e#3010#3011#0" expanded="true" />
+                <element signature="e#3045#3046#0" expanded="true" />
+                <element signature="e#3081#3082#0" expanded="true" />
+                <element signature="e#3112#3113#0" expanded="true" />
+                <element signature="e#3144#3145#0" expanded="true" />
+                <element signature="e#3430#3431#0" expanded="true" />
+                <element signature="e#3464#3465#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/example/PatchTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="390">
-              <caret line="26" selection-start-line="26" selection-end-line="26" />
+              <caret line="26" column="27" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -169,16 +168,15 @@
         <option value="$PROJECT_DIR$/src/main/java/com/example/PullRequestAutomator.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/Automator.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/example/PatchTest.java" />
+        <option value="$PROJECT_DIR$/../adventure/src/com/example/GithubPullRequestTestDifferent.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/Patch.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/example/PatchTest.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="43" />
-    <option name="y" value="23" />
-    <option name="width" value="1383" />
-    <option name="height" value="807" />
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+    <option name="width" value="714" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -245,7 +243,7 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/jackieoh/IdeaProjects/PullRequestAutomator/src/main/java/com/example/PullRequestAutomator.java" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553099153248" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553108205503" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.40804598" />
@@ -342,43 +340,50 @@
       <option name="project" value="LOCAL" />
       <updated>1552967121287</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Created flaky test member variable in Patch (along with getter)">
+      <created>1553099201338</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1553099201338</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="PatchTest - 2019.03.20 at 11h 19m 16s.xml">
+    <history-entry file="PatchTest - 2019.03.20 at 12h 53m 40s.xml">
       <configuration name="PatchTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PatchTest - 2019.03.20 at 11h 20m 01s.xml">
+    <history-entry file="PatchTest - 2019.03.20 at 12h 54m 43s.xml">
       <configuration name="PatchTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PatchTest - 2019.03.20 at 11h 20m 14s.xml">
+    <history-entry file="PatchTest - 2019.03.20 at 12h 54m 46s.xml">
       <configuration name="PatchTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PatchTest - 2019.03.20 at 11h 20m 35s.xml">
+    <history-entry file="PatchTest - 2019.03.20 at 12h 55m 22s.xml">
       <configuration name="PatchTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PatchTest - 2019.03.20 at 11h 20m 55s.xml">
+    <history-entry file="PatchTest - 2019.03.20 at 13h 01m 17s.xml">
       <configuration name="PatchTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PatchTest - 2019.03.20 at 11h 21m 18s.xml">
+    <history-entry file="PatchTest - 2019.03.20 at 13h 12m 56s.xml">
       <configuration name="PatchTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PatchTest - 2019.03.20 at 11h 21m 38s.xml">
+    <history-entry file="PatchTest - 2019.03.20 at 13h 13m 28s.xml">
       <configuration name="PatchTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PatchTest - 2019.03.20 at 11h 21m 56s.xml">
+    <history-entry file="PatchTest - 2019.03.20 at 13h 14m 59s.xml">
       <configuration name="PatchTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PatchTest - 2019.03.20 at 11h 22m 25s.xml">
+    <history-entry file="PatchTest - 2019.03.20 at 13h 17m 48s.xml">
       <configuration name="PatchTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PatchTest - 2019.03.20 at 11h 22m 41s.xml">
+    <history-entry file="PatchTest - 2019.03.20 at 13h 18m 01s.xml">
       <configuration name="PatchTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1695279" />
@@ -390,7 +395,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32891566" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.27831325" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.26385543" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -416,7 +421,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Finished template of Automator and Patch classes" />
     <MESSAGE value="Finished Patch parser" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished Patch parser" />
+    <MESSAGE value="Created flaky test member variable in Patch (along with getter)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created flaky test member variable in Patch (along with getter)" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$MAVEN_REPOSITORY$/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar!/org/hamcrest/MatcherAssert.class">
@@ -483,18 +489,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/Automator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="49" column="54" selection-start-line="49" selection-start-column="54" selection-end-line="49" selection-end-column="54" />
+        <state relative-caret-position="477">
+          <caret line="39" column="38" selection-start-line="39" selection-start-column="38" selection-end-line="39" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/example/PatchTest.java">
+    <entry file="file://$PROJECT_DIR$/../adventure/src/com/example/GithubPullRequestTest.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../adventure/src/com/example/GithubPullRequestTestDifferent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        <state relative-caret-position="210">
+          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -503,22 +512,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/Patch.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="28" column="55" selection-start-line="28" selection-end-line="29" />
+        <state relative-caret-position="260">
+          <caret line="118" column="31" selection-start-line="118" selection-start-column="19" selection-end-line="118" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2097#2098#0" expanded="true" />
-            <element signature="e#2135#2136#0" expanded="true" />
-            <element signature="e#2209#2210#0" expanded="true" />
-            <element signature="e#2241#2242#0" expanded="true" />
-            <element signature="e#2170#2171#0" expanded="true" />
-            <element signature="e#2206#2207#0" expanded="true" />
-            <element signature="e#2240#2241#0" expanded="true" />
-            <element signature="e#2275#2276#0" expanded="true" />
-            <element signature="e#2310#2311#0" expanded="true" />
-            <element signature="e#2346#2347#0" expanded="true" />
-            <element signature="e#2379#2380#0" expanded="true" />
-            <element signature="e#2413#2414#0" expanded="true" />
+            <element signature="e#2767#2768#0" expanded="true" />
+            <element signature="e#2805#2806#0" expanded="true" />
+            <element signature="e#2837#2838#0" expanded="true" />
+            <element signature="e#2870#2871#0" expanded="true" />
+            <element signature="e#2905#2906#0" expanded="true" />
+            <element signature="e#2941#2942#0" expanded="true" />
+            <element signature="e#2975#2976#0" expanded="true" />
+            <element signature="e#3010#3011#0" expanded="true" />
+            <element signature="e#3045#3046#0" expanded="true" />
+            <element signature="e#3081#3082#0" expanded="true" />
+            <element signature="e#3112#3113#0" expanded="true" />
+            <element signature="e#3144#3145#0" expanded="true" />
+            <element signature="e#3430#3431#0" expanded="true" />
+            <element signature="e#3464#3465#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/example/PatchTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="27" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
