@@ -78,6 +78,11 @@ public class Automator {
         }
     }
 
+    /**
+     * Completes the pull request process from start to finish.
+     *
+     * @return true if succeeded, false otherwise.
+     */
     public boolean makePullRequest() {
         String sha = commit();
 
@@ -193,6 +198,4 @@ public class Automator {
         }
         return fileBytes;
     }
-
-    // TODO - Pull request method
 }

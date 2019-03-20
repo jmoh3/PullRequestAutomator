@@ -1,22 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fbd40416-5ac0-480b-8e74-7109fd266708" name="Default Changelist" comment="Finished template of Automator and Patch classes">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_13_beta_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/PatchTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/PullRequestAutomator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PullRequestAutomator.iml" afterDir="false" />
+    <list default="true" id="fbd40416-5ac0-480b-8e74-7109fd266708" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Automator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Automator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Patch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Patch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/PullRequestAutomator.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/Automator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/Automator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/Patch$Status.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/Patch$Status.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/Patch.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/Patch.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/PullRequestAutomator.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -66,15 +58,15 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="8" />
-          <entry key="java" value="4248" />
-          <entry key="txt" value="144" />
+          <entry key="java" value="4859" />
+          <entry key="txt" value="192" />
           <entry key="xml" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="4248" />
-          <entry key="PLAIN_TEXT" value="152" />
+          <entry key="JAVA" value="4859" />
+          <entry key="PLAIN_TEXT" value="200" />
           <entry key="XML" value="3" />
         </counts>
       </usages-collector>
@@ -85,8 +77,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/Automator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1036">
-              <caret line="96" column="28" selection-start-line="96" selection-start-column="28" selection-end-line="96" selection-end-column="28" />
+            <state relative-caret-position="629">
+              <caret line="49" column="54" selection-start-line="49" selection-start-column="54" selection-end-line="49" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -97,8 +89,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="83" lean-forward="true" selection-start-line="15" selection-start-column="83" selection-end-line="15" selection-end-column="83" />
+            <state relative-caret-position="330">
+              <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -106,15 +98,17 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/Patch.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="53" column="21" lean-forward="true" selection-start-line="53" selection-start-column="21" selection-end-line="53" selection-end-column="21" />
+            <state relative-caret-position="298">
+              <caret line="28" column="55" selection-start-line="28" selection-end-line="29" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2097#2098#0" expanded="true" />
                 <element signature="e#2135#2136#0" expanded="true" />
+                <element signature="e#2209#2210#0" expanded="true" />
+                <element signature="e#2241#2242#0" expanded="true" />
                 <element signature="e#2170#2171#0" expanded="true" />
                 <element signature="e#2206#2207#0" expanded="true" />
                 <element signature="e#2240#2241#0" expanded="true" />
@@ -128,11 +122,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/example/PatchTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="390">
-              <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+              <caret line="26" selection-start-line="26" selection-end-line="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -173,10 +167,10 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/Password.txt" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/PullRequestAutomator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/Automator.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/Patch.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/Automator.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/example/PatchTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/Patch.java" />
       </list>
     </option>
   </component>
@@ -251,7 +245,7 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/jackieoh/IdeaProjects/PullRequestAutomator/src/main/java/com/example/PullRequestAutomator.java" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552967092526" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553099153248" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.40804598" />
@@ -341,14 +335,53 @@
       <option name="project" value="LOCAL" />
       <updated>1552885269111</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Finished Patch parser">
+      <created>1552967121287</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1552967121287</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="PatchTest - 2019.03.20 at 11h 19m 16s.xml">
+      <configuration name="PatchTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PatchTest - 2019.03.20 at 11h 20m 01s.xml">
+      <configuration name="PatchTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PatchTest - 2019.03.20 at 11h 20m 14s.xml">
+      <configuration name="PatchTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PatchTest - 2019.03.20 at 11h 20m 35s.xml">
+      <configuration name="PatchTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PatchTest - 2019.03.20 at 11h 20m 55s.xml">
+      <configuration name="PatchTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PatchTest - 2019.03.20 at 11h 21m 18s.xml">
+      <configuration name="PatchTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PatchTest - 2019.03.20 at 11h 21m 38s.xml">
+      <configuration name="PatchTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PatchTest - 2019.03.20 at 11h 21m 56s.xml">
+      <configuration name="PatchTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PatchTest - 2019.03.20 at 11h 22m 25s.xml">
+      <configuration name="PatchTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PatchTest - 2019.03.20 at 11h 22m 41s.xml">
+      <configuration name="PatchTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1695279" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1695279" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -357,7 +390,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32891566" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.36626506" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.27831325" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -382,7 +415,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Finished template of Automator and Patch classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished template of Automator and Patch classes" />
+    <MESSAGE value="Finished Patch parser" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished Patch parser" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$MAVEN_REPOSITORY$/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar!/org/hamcrest/MatcherAssert.class">
@@ -437,20 +471,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/Automator.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1036">
-          <caret line="96" column="28" selection-start-line="96" selection-start-column="28" selection-end-line="96" selection-end-column="28" />
+        <state relative-caret-position="330">
+          <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/Automator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="83" lean-forward="true" selection-start-line="15" selection-start-column="83" selection-end-line="15" selection-end-column="83" />
+        <state relative-caret-position="629">
+          <caret line="49" column="54" selection-start-line="49" selection-start-column="54" selection-end-line="49" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/example/PatchTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -459,12 +503,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/Patch.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="53" column="21" lean-forward="true" selection-start-line="53" selection-start-column="21" selection-end-line="53" selection-end-column="21" />
+        <state relative-caret-position="298">
+          <caret line="28" column="55" selection-start-line="28" selection-end-line="29" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2097#2098#0" expanded="true" />
             <element signature="e#2135#2136#0" expanded="true" />
+            <element signature="e#2209#2210#0" expanded="true" />
+            <element signature="e#2241#2242#0" expanded="true" />
             <element signature="e#2170#2171#0" expanded="true" />
             <element signature="e#2206#2207#0" expanded="true" />
             <element signature="e#2240#2241#0" expanded="true" />
@@ -473,16 +519,6 @@
             <element signature="e#2346#2347#0" expanded="true" />
             <element signature="e#2379#2380#0" expanded="true" />
             <element signature="e#2413#2414#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/example/PatchTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

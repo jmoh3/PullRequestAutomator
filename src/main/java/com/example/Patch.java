@@ -11,6 +11,7 @@ public class Patch {
     private Status status;
 
     private String pathToFile;
+    private String flaky;
     private String modified;
     private String polluter;
     private String cleaner;
@@ -21,6 +22,10 @@ public class Patch {
      * @param contentFileName name of patch file being parsed.
      */
     Patch(String contentFileName) {
+
+        String[] splitFileName = contentFileName.split("/");
+
+        this.flaky = splitFileName[splitFileName.length - 1].replaceAll(".patch", "");
 
         BufferedReader reader;
 
@@ -67,6 +72,10 @@ public class Patch {
         return this.pathToFile;
     }
 
+    public String getFlaky() {
+        return this.flaky;
+    }
+
     public String getPolluter() {
         return this.polluter;
     }
@@ -84,9 +93,14 @@ public class Patch {
     }
 
     public String getPullRequestDescription() {
-        // TODO - fill in pull request template to get this description
 
-        return "";
+        String output;
+
+        output = this.flaky + " identified as order dependent flaky test.\n";
+        output += this.polluter + " causes test to fail when run before it.\n";
+        output += "Code from " + this.cleaner + " used to create patch at lines ";
+
+        return output;
     }
 
 }
