@@ -11,23 +11,49 @@ import java.nio.file.Paths;
 
 public class Automator {
 
+    /** Absolute path to file that was modified. */
     private String absolutePathToFile;
+    /** Path to file that was modified within github repo. */
     private String repoPathToFile;
+    /** Base branch (to merge into, typically master). */
     private String baseBranch;
+    /** New branch. */
     private String newBranch;
+    /** Repo coordinates. */
     private String repoCoordinates;
 
+    /** Comment for pull request (should be filled in template). */
     private String pullComment;
 
+    /** Patch used for pull request. */
     private Patch patch;
 
+    /** Github object. */
     private Github github;
+    /** Repo we are modifying. */
     private Repo repo;
 
+    /** Name of user making pull request. */
     private String name;
+    /** Username of user making pull request. */
     private String username;
+    /** Email of user making pull request. */
     private String email;
 
+    /**
+     * Constructor that does not use a patch (primarily for testing purposes).
+     *
+     * @param absolutePathToFile absolute path to file that was modified.
+     * @param repoPathToFile path to file that was modified within github repo.
+     * @param baseBranch base branch (to merge into, typically master).
+     * @param newBranch new branch.
+     * @param repoCoordinates repo coordinates.
+     * @param pullComment comment for pull request.
+     * @param username username of user making pull request.
+     * @param pathToPasswordFile path to the password file of user making pull request.
+     * @param name name of user making pull request.
+     * @param email email of user making pull request.
+     */
     Automator(String absolutePathToFile, String repoPathToFile, String baseBranch, String newBranch,
               String repoCoordinates, String pullComment,
               String username, String pathToPasswordFile, String name, String email) {
@@ -57,6 +83,17 @@ public class Automator {
         }
     }
 
+    /**
+     * Constructor that takes in un-applied patch object to be used for pull request.
+     *
+     * @param patch patch to be applied.
+     * @param base base branch (to merge into, typically master).
+     * @param repoCoordinates repo coordinates.
+     * @param username username of user making pull request.
+     * @param pathToPasswordFile path to the password file of user making pull request.
+     * @param name name of user making pull request.
+     * @param email email of user making pull request.
+     */
     Automator(Patch patch, String base, String repoCoordinates, String username, String pathToPasswordFile,
               String name, String email) {
 
@@ -106,7 +143,8 @@ public class Automator {
 
     /**
      * Generates commit and pull request for file that already exists in github repository.
-     * @return commit sha
+     *
+     * @return commit sha, or null if commit fails.
      */
     public String commit() {
         try {
