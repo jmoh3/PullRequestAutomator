@@ -186,6 +186,15 @@ public class Patch {
     }
 
     /**
+     * Gets start modified line number.
+     *
+     * @return line number.
+     */
+    public int getLineNumber() {
+        return this.lineNumber;
+    }
+
+    /**
      * Gets Patch status.
      *
      * @return status of patch.
@@ -213,8 +222,9 @@ public class Patch {
 
         if (this.diff.length() != 0) {
             try {
-                FileUtils.writeStringToFile(new File(this.flaky + "ModifiedPatch.patch"), this.diff);
-                Runtime.getRuntime().exec("patch <  " + this.flaky + "ModifiedPatch.patch");
+                String modifiedPatchFilename = this.pathToFile.replaceAll(".patch", "ModifiedPatch.patch");
+                FileUtils.writeStringToFile(new File(modifiedPatchFilename), this.diff);
+                Runtime.getRuntime().exec("patch <  " + modifiedPatchFilename);
                 return true;
             } catch (Exception e) {
                 e.printStackTrace();
@@ -234,9 +244,12 @@ public class Patch {
         String output;
 
         output = this.flaky + " identified as order dependent flaky test.\n";
-        output += this.polluter + " causes test to fail when run before it.\n";
-        output += "Code from " + this.cleaner + " used to create patch at lines ";
-
+        if (this.polluter != null) {
+            output += this.polluter + " causes test to fail when run before it.\n";
+        }
+        if (this.cleaner != null) {
+            output += "Code from " + this.cleaner + " used to create patch at lines ";
+        }
         return output;
     }
 

@@ -20,6 +20,8 @@ public class Main {
             } else {
                 System.out.println("Pull request has failed.");
             }
+        } else {
+            System.out.println("Incorrect arguments");
         }
 
     }

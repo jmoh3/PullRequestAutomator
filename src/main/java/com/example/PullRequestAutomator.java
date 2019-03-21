@@ -201,8 +201,9 @@ public class PullRequestAutomator {
             Pulls pulls = repo.pulls();
             Pull pullRequest = pulls.create("Pull Request Name", "testGithubPR", "master");
             PullComments comments = pullRequest.comments();
-
-            comments.post(this.pullComment, commitSha, this.repoPathToFile, 1);
+            if (patch != null) {
+                comments.post(this.pullComment, commitSha, this.repoPathToFile, this.patch.getLineNumber());
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
