@@ -21,6 +21,8 @@ public class Patch {
     private String diff;
     /** Path to patch file. */
     private String pathToPatch;
+    /** Starting line number where insertion takes place. */
+    private int lineNumber;
 
     /** Flaky test that patch is solving. */
     private String flaky;
@@ -56,12 +58,41 @@ public class Patch {
 
                 if (readingDiff)  {
                     this.diff += line + "\n";
+
+                    // Parses line number.
+                    if (line.length() > 2 && line.substring(0, 2).equals("@@")) {
+                        String[] splitLine = line.split(" ");
+
+                        if (splitLine.length > 2) {
+
+                            String lineNumber = splitLine[1];
+                            lineNumber.replaceAll("-", "");
+                            String[] splitLineNumber = lineNumber.split(",");
+
+                            if (splitLineNumber.length > 0) {
+                                this.lineNumber = Integer.parseInt(splitLineNumber[0]);
+                            }
+                        }
+                    }
+
+                    // Parses path to file (for traditional patch created with diff).
+                    if (line.length() > 3 && line.substring(0, 3).equals("---")) {
+                        String[] splitLine = line.split(" ");
+                        if (splitLine.length > 1) {
+                            this.pathToFile = splitLine[1];
+                        }
+                    }
+
                     line = reader.readLine();
                     continue;
                 }
 
+                // Indicates start of diff.
                 if (line.equals("=========================="))  {
                     readingDiff = true;
+
+                    line = reader.readLine();
+                    continue;
                 }
 
                 String[] splitString = line.split(": ");
@@ -70,10 +101,13 @@ public class Patch {
 
                     if (splitString[0].equals("STATUS") && splitString[1].equals("INLINE FAIL")) {
                         this.status = Status.INLINE_FAIL;
+
                     } else if (splitString[0].equals("STATUS") && splitString[1].equals("INLINE SUCCESSFUL")) {
                         this.status = Status.INLINE_SUCCESS;
+
                     } else if (splitString[0].equals("STATUS") && splitString[1].equals("NO CLEANERS")) {
                         this.status = Status.NO_CLEANERS;
+
                     }
 
                     if (splitString[0].equals("MODIFIED")) {
@@ -166,10 +200,21 @@ public class Patch {
      * @return true if succeeds, false otherwise.
      */
     public boolean applyPatch() {
+
+        if (this.status == Status.NO_CLEANERS) {
+            System.out.println("No cleaners, no patch produced.");
+            return false;
+        }
+
+        if (this.status == Status.INLINE_FAIL) {
+            System.out.println("Inline fail case cannot be handled at the moment.");
+            return false;
+        }
+
         if (this.diff.length() != 0) {
             try {
-                FileUtils.writeStringToFile(new File(this.flaky + "modifiedPatch.patch"), this.diff);
-                Runtime.getRuntime().exec("patch <  " + this.flaky + "modifiedPatch.patch");
+                FileUtils.writeStringToFile(new File(this.flaky + "ModifiedPatch.patch"), this.diff);
+                Runtime.getRuntime().exec("patch <  " + this.flaky + "ModifiedPatch.patch");
                 return true;
             } catch (Exception e) {
                 e.printStackTrace();
