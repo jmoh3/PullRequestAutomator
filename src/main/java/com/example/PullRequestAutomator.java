@@ -9,7 +9,7 @@ import java.io.FileInputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class Automator {
+public class PullRequestAutomator {
 
     /** Absolute path to file that was modified. */
     private String absolutePathToFile;
@@ -54,9 +54,9 @@ public class Automator {
      * @param name name of user making pull request.
      * @param email email of user making pull request.
      */
-    Automator(String absolutePathToFile, String repoPathToFile, String baseBranch, String newBranch,
-              String repoCoordinates, String pullComment,
-              String username, String pathToPasswordFile, String name, String email) {
+    PullRequestAutomator(String absolutePathToFile, String repoPathToFile, String baseBranch, String newBranch,
+                         String repoCoordinates, String pullComment,
+                         String username, String pathToPasswordFile, String name, String email) {
 
         this.absolutePathToFile = absolutePathToFile;
         this.repoPathToFile = repoPathToFile;
@@ -95,8 +95,8 @@ public class Automator {
      * @param name name of user making pull request.
      * @param email email of user making pull request.
      */
-    Automator(Patch patch, String base, String newBranch, String repoCoordinates, String username, String pathToPasswordFile,
-              String name, String email) {
+    PullRequestAutomator(Patch patch, String base, String newBranch, String repoCoordinates, String username, String pathToPasswordFile,
+                         String name, String email) {
 
         this.patch = patch;
 
