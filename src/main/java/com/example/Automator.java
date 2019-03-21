@@ -88,20 +88,23 @@ public class Automator {
      *
      * @param patch patch to be applied.
      * @param base base branch (to merge into, typically master).
+     * @param newBranch new branch.
      * @param repoCoordinates repo coordinates.
      * @param username username of user making pull request.
      * @param pathToPasswordFile path to the password file of user making pull request.
      * @param name name of user making pull request.
      * @param email email of user making pull request.
      */
-    Automator(Patch patch, String base, String repoCoordinates, String username, String pathToPasswordFile,
+    Automator(Patch patch, String base, String newBranch, String repoCoordinates, String username, String pathToPasswordFile,
               String name, String email) {
 
         this.patch = patch;
 
         this.absolutePathToFile = patch.getPathToFile();
         this.pullComment = patch.getPullRequestDescription();
+
         this.baseBranch = base;
+        this.newBranch = newBranch;
         this.repoCoordinates = repoCoordinates;
 
         this.name = name;

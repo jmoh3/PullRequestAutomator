@@ -24,6 +24,5 @@ public class PatchTest {
     public void testStatusInlineSuccess() {
         Patch patch = new Patch(patchDirectory + "com.github.kevinsawicki.http.HttpRequestTest.deleteWithEscapedMappedQueryParams.patch");
         assertEquals(Patch.Status.INLINE_SUCCESS, patch.getStatus());
-        System.out.println(patch.applyPatch());
     }
 }

@@ -12,24 +12,13 @@ public class Main {
      * @param args pass in path to patch file.
      */
     public static void main(String[] args) {
-        String pathToPatchFile;
 
-        if (args.length > 0)  {
-            pathToPatchFile = args[0];
+        if (args.length == 8)  {
+            Automator automator = new Automator(new Patch(args[0]), args[1], args[2], args[3], args[4],
+                    args[5], args[6], args[7]);
+
+            automator.makePullRequest();
         }
-
-        Automator automator = new Automator("/Users/jackieoh/IdeaProjects/adventure/src/com/example/GithubPullRequestTest.java",
-                "/src/com/example/GithubPullRequestTest.java",
-                "master",
-                "testGithubPR",
-                "jmoh3/adventure",
-                "comment",
-                "jmoh3",
-                "/Users/jackieoh/IdeaProjects/PullRequestAutomator/Password.txt",
-                "Jackie Oh",
-                "jmoh3@illinois.edu");
-
-        automator.makePullRequest();
 
     }
 }
