@@ -9,3 +9,14 @@ To use, run Main.java with args:
 5. Username of user making pull request.
 6. Path to the password of user making pull request.
 7. Email of person making pull request.
+
+Patch file must be in following format:
+
+STATUS: status of patch
+MODIFIED: name of modified
+CLEANER: name of cleaner
+POLLUTER: name of polluter
+...
+==========================
+Patch contents here
+...
