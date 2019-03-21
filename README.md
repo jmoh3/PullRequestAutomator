@@ -12,7 +12,7 @@ To use, run Main.java with args:
 
 Patch file must be in following format:
 
-STATUS: status of patch
+```STATUS: status of patch
 MODIFIED: name of modified
 CLEANER: name of cleaner
 POLLUTER: name of polluter
@@ -20,3 +20,4 @@ POLLUTER: name of polluter
 ==========================
 Patch contents here
 ...
+```
