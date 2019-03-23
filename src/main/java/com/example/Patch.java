@@ -1,6 +1,7 @@
 package com.example;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 
 import java.io.*;
 
@@ -33,14 +34,21 @@ public class Patch {
     /** Test that causes flaky to succeed when inbetween polluter and flaky. */
     private String cleaner;
 
+    /** True if patch applied. */
+    private boolean applied = false;
+
     /**
      * Creates a patch object for a patch file.
      *
-     * @param contentFileName name of patch file being parsed.
+     * @param pathToPatch name of patch file being parsed.
+     * @param pathToFile name of file to apply patch to.
      */
-    Patch(String contentFileName) {
+    Patch(String pathToPatch, String pathToFile) {
 
-        String[] splitFileName = contentFileName.split("/");
+        this.pathToPatch = pathToPatch;
+        this.pathToFile = pathToFile;
+
+        String[] splitFileName = pathToPatch.split("/");
 
         this.flaky = splitFileName[splitFileName.length - 1].replaceAll(".patch", "");
 
@@ -49,7 +57,7 @@ public class Patch {
         BufferedReader reader;
 
         try {
-            reader = new BufferedReader(new FileReader(contentFileName));
+            reader = new BufferedReader(new FileReader(pathToPatch));
 
             boolean readingDiff = false;
 
@@ -66,20 +74,12 @@ public class Patch {
                         if (splitLine.length > 2) {
 
                             String lineNumber = splitLine[1];
-                            lineNumber.replaceAll("-", "");
+                            lineNumber = lineNumber.replaceAll("-", "");
                             String[] splitLineNumber = lineNumber.split(",");
 
                             if (splitLineNumber.length > 0) {
                                 this.lineNumber = Integer.parseInt(splitLineNumber[0]);
                             }
-                        }
-                    }
-
-                    // Parses path to file (for traditional patch created with diff).
-                    if (line.length() > 3 && line.substring(0, 3).equals("---")) {
-                        String[] splitLine = line.split(" ");
-                        if (splitLine.length > 1) {
-                            this.pathToFile = splitLine[1];
                         }
                     }
 
@@ -220,18 +220,53 @@ public class Patch {
             return false;
         }
 
-        if (this.diff.length() != 0) {
-            try {
-                String modifiedPatchFilename = this.pathToFile.replaceAll(".patch", "ModifiedPatch.patch");
-                FileUtils.writeStringToFile(new File(modifiedPatchFilename), this.diff);
-                Runtime.getRuntime().exec("patch <  " + modifiedPatchFilename);
-                return true;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
-            }
+        File cwd = new File("").getAbsoluteFile();
+
+        ProcessBuilder processBuilder = new ProcessBuilder("patch", "-p0", this.pathToFile, this.pathToPatch);
+        processBuilder.redirectErrorStream(true);
+
+        processBuilder.directory(cwd);
+
+        Process process = null;
+
+        try {
+            process = processBuilder.start();
+            IOUtils.copy(process.getInputStream(), System.out);
+            process.waitFor();
+            this.applied = true;
+            return true;
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            e.printStackTrace();
+            return false;
         }
-        return false;
+    }
+
+    public boolean undoPatch() {
+        if (!this.applied) {
+            return false;
+        }
+
+        File cwd = new File("").getAbsoluteFile();
+
+        ProcessBuilder processBuilder = new ProcessBuilder("patch", "-R", "-p0", this.pathToFile, this.pathToPatch);
+        processBuilder.redirectErrorStream(true);
+
+        processBuilder.directory(cwd);
+
+        Process process = null;
+
+        try {
+            process = processBuilder.start();
+            IOUtils.copy(process.getInputStream(), System.out);
+            process.waitFor();
+            this.applied = true;
+            return true;
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            e.printStackTrace();
+            return false;
+        }
     }
 
     /**
@@ -248,7 +283,7 @@ public class Patch {
             output += this.polluter + " causes test to fail when run before it.\n";
         }
         if (this.cleaner != null) {
-            output += "Code from " + this.cleaner + " used to create patch at lines ";
+            output += "Code from " + this.cleaner + " used to create patch at line " + this.lineNumber;
         }
         return output;
     }

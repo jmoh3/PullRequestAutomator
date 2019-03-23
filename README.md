@@ -8,7 +8,8 @@ To use, run Main.java with args:
 4. Repo coordinates.
 5. Username of user making pull request.
 6. Path to the password of user making pull request.
-7. Email of person making pull request.
+7. Name of person making pull request.
+8. Email of person making pull request.
 
 Patch file must be in following format:
 
