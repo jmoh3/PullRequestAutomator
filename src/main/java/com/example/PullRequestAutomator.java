@@ -87,6 +87,7 @@ public class PullRequestAutomator {
      * Constructor that takes in un-applied patch object to be used for pull request.
      *
      * @param patch patch to be applied.
+     * @param repoPathToFile path to file that was modified within github repo.
      * @param base base branch (to merge into, typically master).
      * @param newBranch new branch.
      * @param repoCoordinates repo coordinates.
@@ -95,10 +96,11 @@ public class PullRequestAutomator {
      * @param name name of user making pull request.
      * @param email email of user making pull request.
      */
-    PullRequestAutomator(Patch patch, String base, String newBranch, String repoCoordinates, String username, String pathToPasswordFile,
-                         String name, String email) {
+    PullRequestAutomator(Patch patch, String repoPathToFile, String base, String newBranch, String repoCoordinates, String username,
+                         String pathToPasswordFile, String name, String email) {
 
         this.patch = patch;
+        this.repoPathToFile = repoPathToFile;
 
         this.absolutePathToFile = patch.getPathToFile();
         this.pullComment = patch.getPullRequestDescription();

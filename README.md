@@ -3,13 +3,15 @@
 To use, run Main.java with args:
 
 1. Path to patch file.
-2. Base branch (branch to merge into).
-3. New branch name.
-4. Repo coordinates.
-5. Username of user making pull request.
-6. Path to the password of user making pull request.
-7. Name of person making pull request.
-8. Email of person making pull request.
+2. Path to file that's going to be modified.
+3. Local path to file that's going to be modified/
+4. Base branch (branch to merge into).
+5. New branch name.
+6. Repo coordinates.
+7. Username of user making pull request.
+8. Path to the password of user making pull request.
+9. Name of person making pull request.
+10. Email of person making pull request.
 
 Patch file must be in following format:
 
