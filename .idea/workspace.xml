@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="fbd40416-5ac0-480b-8e74-7109fd266708" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/PullRequestAutomator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/PullRequestAutomator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Patch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Patch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/Main.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -37,7 +36,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="class" value="3" />
+          <entry key="class" value="4" />
           <entry key="gitignore" value="2" />
           <entry key="iml" value="1" />
           <entry key="java" value="15" />
@@ -50,7 +49,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="3" />
+          <entry key="CLASS" value="4" />
           <entry key="IDEA_MODULE" value="1" />
           <entry key="JAVA" value="15" />
           <entry key="Markdown" value="1" />
@@ -63,17 +62,17 @@
         <counts>
           <entry key="dummy" value="12" />
           <entry key="gitignore" value="8" />
-          <entry key="java" value="10386" />
-          <entry key="md" value="861" />
-          <entry key="txt" value="863" />
+          <entry key="java" value="10642" />
+          <entry key="md" value="927" />
+          <entry key="txt" value="931" />
           <entry key="xml" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="10386" />
-          <entry key="Markdown" value="861" />
-          <entry key="PLAIN_TEXT" value="883" />
+          <entry key="JAVA" value="10642" />
+          <entry key="Markdown" value="927" />
+          <entry key="PLAIN_TEXT" value="951" />
           <entry key="XML" value="3" />
         </counts>
       </usages-collector>
@@ -84,8 +83,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/PullRequestAutomator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="89" column="5" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
+            <state relative-caret-position="-448">
+              <caret line="70" column="25" lean-forward="true" selection-start-line="70" selection-start-column="25" selection-end-line="70" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -97,28 +96,28 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="75">
-                <caret line="5" column="44" lean-forward="true" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
+              <first_editor relative-caret-position="60">
+                <caret line="4" column="22" lean-forward="true" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
               </first_editor>
               <second_editor />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+            <state relative-caret-position="375">
+              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/Patch.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3392">
-              <caret line="255" lean-forward="true" selection-start-line="255" selection-end-line="255" />
+            <state relative-caret-position="308">
+              <caret line="268" column="49" selection-start-line="268" selection-start-column="49" selection-end-line="268" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#4066#4067#0" expanded="true" />
@@ -145,7 +144,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/example/PatchTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
+            <state relative-caret-position="230">
               <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -191,11 +190,11 @@
         <option value="$PROJECT_DIR$/src/main/java/com/example/Automator.java" />
         <option value="$PROJECT_DIR$/../adventure/src/com/example/GithubPullRequestTest.java" />
         <option value="$PROJECT_DIR$/../adventure/src/com/example/GithubPullRequestTestDifferent.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/Patch.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/example/PatchTest.java" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/PullRequestAutomator.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/Main.java" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/Patch.java" />
       </list>
     </option>
   </component>
@@ -276,7 +275,7 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/jackieoh/IdeaProjects/PullRequestAutomator/src/main/java/com/example/PullRequestAutomator.java" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553389460144" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553424716882" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.40804598" />
@@ -294,7 +293,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.PatchTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.Main" />
       <module name="PullRequestAutomator" />
@@ -343,8 +342,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.PatchTest" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.PullRequestAutomator" />
       </list>
     </recent_temporary>
@@ -444,38 +443,45 @@
       <option name="project" value="LOCAL" />
       <updated>1553366516689</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Added more necessary arguments to Main for running patch">
+      <created>1553389535363</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1553389535363</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="PatchTest - 2019.03.23 at 13h 16m 31s.xml">
+    <history-entry file="PatchTest - 2019.03.24 at 05h 47m 07s.xml">
       <configuration name="PatchTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PatchTest - 2019.03.23 at 13h 17m 38s.xml">
+    <history-entry file="PatchTest - 2019.03.24 at 05h 47m 51s.xml">
       <configuration name="PatchTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PatchTest - 2019.03.23 at 13h 18m 15s.xml">
+    <history-entry file="PatchTest - 2019.03.24 at 05h 48m 19s.xml">
       <configuration name="PatchTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PatchTest - 2019.03.23 at 13h 18m 33s.xml">
+    <history-entry file="PatchTest - 2019.03.24 at 05h 48m 35s.xml">
       <configuration name="PatchTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PatchTest - 2019.03.23 at 13h 18m 45s.xml">
+    <history-entry file="PatchTest - 2019.03.24 at 05h 48m 45s.xml">
       <configuration name="PatchTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PatchTest - 2019.03.23 at 13h 20m 05s.xml">
+    <history-entry file="PatchTest - 2019.03.24 at 05h 49m 33s.xml">
       <configuration name="PatchTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PatchTest - 2019.03.23 at 13h 21m 14s.xml">
+    <history-entry file="PatchTest - 2019.03.24 at 05h 49m 49s.xml">
       <configuration name="PatchTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PatchTest - 2019.03.23 at 13h 39m 13s.xml">
+    <history-entry file="PatchTest - 2019.03.24 at 05h 50m 21s.xml">
       <configuration name="PatchTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PatchTest - 2019.03.23 at 13h 39m 27s.xml">
+    <history-entry file="PatchTest - 2019.03.24 at 05h 50m 53s.xml">
       <configuration name="PatchTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PatchTest - 2019.03.23 at 19h 53m 35s.xml">
+    <history-entry file="PatchTest - 2019.03.24 at 05h 51m 04s.xml">
       <configuration name="PatchTest" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -492,7 +498,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32891566" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3120482" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.426506" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -557,7 +563,9 @@
     <MESSAGE value="Update markdown" />
     <MESSAGE value="Update markdown, add more null handling" />
     <MESSAGE value="Fixed applyPatch method (switched to ProcessBuilder)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed applyPatch method (switched to ProcessBuilder)" />
+    <MESSAGE value="Added more necessary args for running patch" />
+    <MESSAGE value="Added more necessary arguments to Main for running patch" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added more necessary arguments to Main for running patch" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$MAVEN_REPOSITORY$/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar!/org/hamcrest/MatcherAssert.class">
@@ -638,10 +646,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/jcabi/jcabi-github/0.41/jcabi-github-0.41.jar!/com/jcabi/github/RtPulls.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="131" column="29" lean-forward="true" selection-start-line="131" selection-start-column="29" selection-end-line="131" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/PullRequestAutomator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-448">
+          <caret line="70" column="25" lean-forward="true" selection-start-line="70" selection-start-column="25" selection-end-line="70" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="60">
+            <caret line="4" column="22" lean-forward="true" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/example/PatchTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/Patch.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3392">
-          <caret line="255" lean-forward="true" selection-start-line="255" selection-end-line="255" />
+        <state relative-caret-position="308">
+          <caret line="268" column="49" selection-start-line="268" selection-start-column="49" selection-end-line="268" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#4066#4067#0" expanded="true" />
@@ -661,43 +713,6 @@
             <element signature="e#5074#5075#0" expanded="true" />
             <element signature="e#5108#5109#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="75">
-            <caret line="5" column="44" lean-forward="true" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/PullRequestAutomator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="89" column="5" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/example/PatchTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
         </state>
       </provider>
     </entry>

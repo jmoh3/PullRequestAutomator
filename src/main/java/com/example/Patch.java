@@ -231,10 +231,19 @@ public class Patch {
 
         try {
             process = processBuilder.start();
-            IOUtils.copy(process.getInputStream(), System.out);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            PrintStream printStream = new PrintStream(byteArrayOutputStream);
+            IOUtils.copy(process.getInputStream(), printStream);
             process.waitFor();
-            this.applied = true;
-            return true;
+
+            String message = byteArrayOutputStream.toString();
+
+            if (message != null && message.equals("patching file " + this.pathToFile + "\n")) {
+                this.applied = true;
+                return true;
+            } else {
+                return false;
+            }
         } catch (Exception e) {
             System.out.println(e.toString());
             e.printStackTrace();
@@ -258,10 +267,20 @@ public class Patch {
 
         try {
             process = processBuilder.start();
-            IOUtils.copy(process.getInputStream(), System.out);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            PrintStream printStream = new PrintStream(byteArrayOutputStream);
+            IOUtils.copy(process.getInputStream(), printStream);
             process.waitFor();
-            this.applied = true;
-            return true;
+
+            String message = byteArrayOutputStream.toString();
+
+            if (message != null && message.equals("patching file " + this.pathToFile + "\n")) {
+                this.applied = true;
+                return true;
+            } else {
+                return false;
+            }
+
         } catch (Exception e) {
             System.out.println(e.toString());
             e.printStackTrace();
