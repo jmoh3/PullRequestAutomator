@@ -242,6 +242,7 @@ public class Patch {
                 this.applied = true;
                 return true;
             } else {
+                System.out.println(message);
                 return false;
             }
         } catch (Exception e) {
@@ -278,6 +279,7 @@ public class Patch {
                 this.applied = true;
                 return true;
             } else {
+                System.out.println(message);
                 return false;
             }
 

@@ -1,0 +1,11 @@
+--- GithubPullRequestTest.java	2019-03-20 14:10:25.000000000 -0400
++++ GithubPullRequestTestDifferent.java	2019-03-23 13:37:50.000000000 -0400
+@@ -11,8 +11,6 @@
+ 
+ /**
+  * A class that tests automated pull requests using the jcabi github api.
+- * Hello! This is a different file
+- * My name is jackie
+  */
+ public class GithubPullRequestTest {
+ 
