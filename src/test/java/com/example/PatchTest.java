@@ -27,10 +27,10 @@ public class PatchTest {
         assertEquals(Patch.Status.INLINE_SUCCESS, patch.getStatus());
     }
 
-//    @Test
-//    public void testApplyPatchSuccess() {
-//        Patch patch = new Patch("/Users/jackieoh/IdeaProjects/adventure/src/com/example/GithubPRPatch.patch",  "/Users/jackieoh/IdeaProjects/adventure/src/com/example/GithubPullRequestTest.java");
-//        assertTrue(patch.applyPatch());
-//        assertTrue(patch.undoPatch());
-//    }
+    @Test
+    public void testApplyPatchSuccess() {
+        Patch patch = new Patch("/Users/jackieoh/IdeaProjects/adventure/src/com/example/GithubPRPatch.patch",  "/Users/jackieoh/IdeaProjects/adventure/src/com/example/GithubPullRequestTest.java");
+        assertTrue(patch.applyPatch());
+        assertTrue(patch.undoPatch());
+    }
 }

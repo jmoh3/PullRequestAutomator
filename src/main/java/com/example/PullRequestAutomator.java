@@ -104,7 +104,9 @@ public class PullRequestAutomator {
         this.repoPathToFile = repoPathToFile;
 
         this.absolutePathToFile = patch.getPathToFile();
+        System.out.println(this.absolutePathToFile);
         this.pullComment = patch.getPullRequestDescription();
+        System.out.println(this.pullComment);
 
         this.baseBranch = base;
         this.newBranch = newBranch;
@@ -113,11 +115,11 @@ public class PullRequestAutomator {
         HashMap<String, String> credentialsMap = readCredentials(credentialsPath);
 
         this.name = credentialsMap.get("NAME");
-        this.username = credentialsMap.get("USER");
+        this.username = credentialsMap.get("USERNAME");
         this.email = credentialsMap.get("EMAIL");
 
         try {
-            String password = readFileAsString(credentialsMap.get("PASSWORD"));
+            String password = credentialsMap.get("PASSWORD");
             this.github = new RtGithub(this.username, password);
             this.repo = this.github.repos().get(
                     new Coordinates.Simple(repoCoordinates)
@@ -128,6 +130,12 @@ public class PullRequestAutomator {
         }
     }
 
+    /**
+     * Reads a user's github credentials from a file and returns a HashMap containing those credentials.
+     *
+     * @param credentialsPath path to the file containing credentials.
+     * @return HashMap mapping credential name (username, password, etc) to value of credential.
+     */
     HashMap<String, String> readCredentials(String credentialsPath) {
         BufferedReader reader;
         HashMap<String, String> credentials = new HashMap<String, String>();
@@ -138,17 +146,22 @@ public class PullRequestAutomator {
             String line = reader.readLine();
             while (line != null) {
                 if (line.contains("NAME: ")) {
-                    credentials.put("NAME", line.replace("NAME: ", ""));
+                    String name = line.replace("NAME: ", "");
+                    credentials.put("NAME", name);
                 }
                 if (line.contains("USER: ")) {
-                    credentials.put("USER", line.replace("USER: ", ""));
+                    String username = line.replace("USER: ", "");
+                    credentials.put("USERNAME", username);
                 }
                 if (line.contains("PASSWORD: ")) {
-                    credentials.put("PASSWORD", line.replace("PASSWORD: ", ""));
+                    String password = line.replace("PASSWORD: ", "");
+                    credentials.put("PASSWORD", password);
                 }
                 if (line.contains("EMAIL: ")) {
-                    credentials.put("EMAIL", line.replace("EMAIL: ", ""));
+                    String email = line.replace("EMAIL: ", "");
+                    credentials.put("EMAIL", email);
                 }
+                line = reader.readLine();
             }
         } catch (Exception e) {
             e.printStackTrace();
