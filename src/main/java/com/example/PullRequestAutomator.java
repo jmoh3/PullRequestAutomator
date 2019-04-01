@@ -4,10 +4,14 @@ import com.jcabi.github.*;
 import org.apache.commons.codec.binary.Base64;
 
 import javax.json.Json;
+import javax.print.attribute.HashAttributeSet;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileReader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.HashMap;
 
 public class PullRequestAutomator {
 
@@ -91,13 +95,10 @@ public class PullRequestAutomator {
      * @param base base branch (to merge into, typically master).
      * @param newBranch new branch.
      * @param repoCoordinates repo coordinates.
-     * @param username username of user making pull request.
-     * @param pathToPasswordFile path to the password file of user making pull request.
-     * @param name name of user making pull request.
-     * @param email email of user making pull request.
+     * @param
      */
-    PullRequestAutomator(Patch patch, String repoPathToFile, String base, String newBranch, String repoCoordinates, String username,
-                         String pathToPasswordFile, String name, String email) {
+    PullRequestAutomator(Patch patch, String repoPathToFile, String base, String newBranch,
+                         String repoCoordinates, String credentialsPath) {
 
         this.patch = patch;
         this.repoPathToFile = repoPathToFile;
@@ -109,19 +110,50 @@ public class PullRequestAutomator {
         this.newBranch = newBranch;
         this.repoCoordinates = repoCoordinates;
 
-        this.name = name;
-        this.email = email;
+        HashMap<String, String> credentialsMap = readCredentials(credentialsPath);
+
+        this.name = credentialsMap.get("NAME");
+        this.username = credentialsMap.get("USER");
+        this.email = credentialsMap.get("EMAIL");
 
         try {
-            String password = readFileAsString(pathToPasswordFile);
-            this.github = new RtGithub(username, password);
-            this.repo = github.repos().get(
+            String password = readFileAsString(credentialsMap.get("PASSWORD"));
+            this.github = new RtGithub(this.username, password);
+            this.repo = this.github.repos().get(
                     new Coordinates.Simple(repoCoordinates)
             );
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    HashMap<String, String> readCredentials(String credentialsPath) {
+        BufferedReader reader;
+        HashMap<String, String> credentials = new HashMap<String, String>();
+
+        try {
+            reader = new BufferedReader(new FileReader(credentialsPath));
+
+            String line = reader.readLine();
+            while (line != null) {
+                if (line.contains("NAME: ")) {
+                    credentials.put("NAME", line.replace("NAME: ", ""));
+                }
+                if (line.contains("USER: ")) {
+                    credentials.put("USER", line.replace("USER: ", ""));
+                }
+                if (line.contains("PASSWORD: ")) {
+                    credentials.put("PASSWORD", line.replace("PASSWORD: ", ""));
+                }
+                if (line.contains("EMAIL: ")) {
+                    credentials.put("EMAIL", line.replace("EMAIL: ", ""));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return credentials;
     }
 
     /**
@@ -138,9 +170,7 @@ public class PullRequestAutomator {
         String sha = commit();
 
         if (sha != null) {
-            boolean success = pull(sha);
-
-            return success;
+            return pull(sha);
         } else {
             return false;
         }
@@ -237,8 +267,7 @@ public class PullRequestAutomator {
      * @param file file to use.
      * @return byte array.
      */
-    private byte[] convertToByteArray(File file)
-    {
+    private byte[] convertToByteArray(File file) {
         byte[] fileBytes = new byte[(int) file.length()];
 
         try {
