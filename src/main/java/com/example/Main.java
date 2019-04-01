@@ -11,7 +11,7 @@ public class Main {
 
         if (args.length == 7)  {
             Patch patch = new Patch(args[0], args[1]);
-            System.out.println(patch.getFlaky());
+
             PullRequestAutomator automator = new PullRequestAutomator(patch, args[2], args[3], args[4], args[5], args[6]);
 
             boolean success = automator.makePullRequest();

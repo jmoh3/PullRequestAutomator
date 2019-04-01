@@ -215,7 +215,7 @@ public class PullRequestAutomator {
             RepoCommit newCommit = repo.contents().update(
                     this.repoPathToFile,
                     Json.createObjectBuilder()
-                            .add("message", "Committed new file!")
+                            .add("message", "Patching flaky test " + this.patch.getFlaky())
                             .add("content", enc)
                             .add("sha", sha)
                             .add("branch", this.newBranch)
