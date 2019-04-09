@@ -244,7 +244,7 @@ public class PullRequestAutomator {
     public boolean pull(String commitSha) {
         try {
             Pulls pulls = repo.pulls();
-            Pull pullRequest = pulls.create("Pull Request Name", "testGithubPR", "master");
+            Pull pullRequest = pulls.create("Pull Request Name", this.newBranch, baseBranch);
             PullComments comments = pullRequest.comments();
             if (patch != null) {
                 comments.post(this.pullComment, commitSha, this.repoPathToFile, this.patch.getLineNumber());

@@ -4,6 +4,9 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 
 public class Patch {
 
@@ -17,6 +20,9 @@ public class Patch {
 
     /** Path to file where patch is being applied. */
     private String pathToFile;
+
+    /** Repo coordinates. */
+    private String slug;
 
     /** Actual patch (diff output to apply). */
     private String diff;
@@ -54,6 +60,68 @@ public class Patch {
 
         this.diff = "";
 
+        readPatch(pathToPatch);
+    }
+
+    /**
+     * Another constructor.
+     *
+     * @param pathToPatch path to patch file.
+     * @param patchLocation patch location (in pre-determined format)
+     * @param pathToLocalRepo path to local repo.
+     */
+    public Patch(String pathToPatch, String patchLocation, String pathToLocalRepo) {
+        HashMap<String, String> parsedInfo = parsePackageFilePath(patchLocation);
+
+        this.pathToPatch = pathToPatch;
+        this.slug = parsedInfo.get("slug");
+        this.pathToFile = findPathToFile(pathToLocalRepo, parsedInfo.get("module"), parsedInfo.get("filepathWithinModule"));
+        this.flaky = parsedInfo.get("test");
+
+        readPatch(pathToPatch);
+    }
+
+
+    public static String findPathToFile(String pathToLocalRepo, String module, String pathWithinModule) {
+        File localRepoDirectory = new File(pathToLocalRepo);
+
+        if (!localRepoDirectory.exists()) {
+            return null;
+        }
+
+        ArrayList<String> splitModulePath = new ArrayList<String>(Arrays.asList(module.split("-")));
+
+        int startIndex = 0;
+        int endIndex = splitModulePath.size();
+
+        String foundModulePath = pathToLocalRepo;
+
+        while (endIndex > startIndex) {
+            String newFilePath = foundModulePath + "/" + String.join("-", splitModulePath.subList(startIndex, endIndex));
+            File moduleFile = new File(newFilePath);
+
+            if (moduleFile.exists()) {
+                foundModulePath = newFilePath;
+                startIndex = endIndex;
+                endIndex = splitModulePath.size();
+            } else {
+                endIndex -= 1;
+            }
+        }
+
+        foundModulePath += "/src/test/java/" + String.join("/", pathWithinModule.split("\\.")) + ".java";
+
+        System.out.println(foundModulePath);
+
+        return foundModulePath;
+    }
+
+    /**
+     * Reads contents of patch and uses them to initialize member variables.
+     *
+     * @param pathToPatch path to patch file.
+     */
+    public void readPatch(String pathToPatch) {
         BufferedReader reader;
 
         try {
@@ -99,13 +167,13 @@ public class Patch {
 
                 if (splitString.length > 1) {
 
-                    if (splitString[0].equals("STATUS") && splitString[1].equals("INLINE FAIL")) {
+                    if (splitString[0].equals("STATUS") && splitString[1].contains("INLINE FAIL")) {
                         this.status = Status.INLINE_FAIL;
 
-                    } else if (splitString[0].equals("STATUS") && splitString[1].equals("INLINE SUCCESSFUL")) {
+                    } else if (splitString[0].equals("STATUS") && splitString[1].contains("INLINE SUCCESSFUL")) {
                         this.status = Status.INLINE_SUCCESS;
 
-                    } else if (splitString[0].equals("STATUS") && splitString[1].equals("NO CLEANERS")) {
+                    } else if (splitString[0].equals("STATUS") && splitString[1].contains("NO CLEANERS")) {
                         this.status = Status.NO_CLEANERS;
 
                     }
@@ -204,6 +272,15 @@ public class Patch {
     }
 
     /**
+     * Gets slug (repo coordinates).
+     *
+     * @return repo slug.
+     */
+    public String getSlug() {
+        return this.slug;
+    }
+
+    /**
      * Applies patch.
      *
      * @return true if succeeds, false otherwise.
@@ -238,7 +315,7 @@ public class Patch {
 
             String message = byteArrayOutputStream.toString();
 
-            if (message != null && message.equals("patching file " + this.pathToFile + "\n")) {
+            if (message != null && message.contains("patching file " + this.pathToFile + "\n")) {
                 this.applied = true;
                 return true;
             } else {
@@ -275,7 +352,7 @@ public class Patch {
 
             String message = byteArrayOutputStream.toString();
 
-            if (message != null && message.equals("patching file " + this.pathToFile + "\n")) {
+            if (message != null && message.contains("patching file " + this.pathToFile + "\n")) {
                 this.applied = true;
                 return true;
             } else {
@@ -308,5 +385,61 @@ public class Patch {
         }
         return output;
     }
+
+
+    /**
+     * Parses a path to a patch file in given format.
+     *
+     * @param path path to patch file.
+     * @return hashmap containing key information about module, test name, repo coordinates, and a filepath within the module.
+     */
+    public static HashMap<String, String> parsePackageFilePath(String path) {
+        if (path == null) {
+            return null;
+        }
+
+        String[] splitPath = path.split("/");
+
+        if (splitPath.length < 7) {
+            return null;
+        }
+
+        String slug = splitPath[1];
+
+        slug = slug.replace(".",  "/");
+
+        String projectName = slug.split("/")[1];
+
+        String moduleName = splitPath[4];
+
+        moduleName = moduleName.replaceFirst(projectName + "-", "");
+
+        String filePathWithinModule = splitPath[6];
+
+        String[] splitFilePathWithinModule = filePathWithinModule.split("\\.");
+
+        if (splitFilePathWithinModule.length < 3) {
+            return null;
+        }
+
+        String testName = splitFilePathWithinModule[splitFilePathWithinModule.length - 3];
+
+        filePathWithinModule = String.join(".", Arrays.copyOfRange(splitFilePathWithinModule, 0, splitFilePathWithinModule.length - 3));
+
+        HashMap<String, String> packageMap = new HashMap<String, String>();
+
+        packageMap.put("slug", slug);
+        packageMap.put("module", moduleName);
+        packageMap.put("test", testName);
+        packageMap.put("filepathWithinModule", filePathWithinModule);
+
+        for (String key : packageMap.keySet()) {
+            System.out.println(key);
+            System.out.println(packageMap.get(key));
+        }
+
+        return packageMap;
+    }
+
 
 }

@@ -10,10 +10,10 @@ With args:
 
 1. Path to patch file.
 2. Path to file that's going to be modified.
-3. Local path to file that's going to be modified/
+3. Local path to file that's going to be modified.
 4. Base branch (branch to merge into).
 5. New branch name.
-6. Repo coordinates.
+6. Repo coordinates (/SLUG)
 7. Path to file containing credentials
 
 Patch file must be in following format:
