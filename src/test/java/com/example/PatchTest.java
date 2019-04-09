@@ -82,8 +82,8 @@ public class PatchTest {
 
     @Test
     public void testPatchConstructorDubbo() {
-        String incubatorDubboPathToPatch = "/Users/jackieoh/Desktop/PURE/patches/org.apache.dubbo.rpc.protocol.dubbo.telnet.ChangeTelnetHandlerTest.testChangeServiceNotExport.patch";
-        String incubatorDubboLocation = "./apache.incubator-dubbo/apache.incubator-dubbo=org.apache.dubbo.rpc.protocol.dubbo.telnet.ChangeTelnetHandlerTest.testChangeServiceNotExport/apache.incubator-dubbo_output/incubator-dubbo-dubbo-rpc-dubbo-rpc-dubbo/fixer/org.apache.dubbo.rpc.protocol.dubbo.telnet.ChangeTelnetHandlerTest.testChangeServiceNotExport.patch.55";
+        String incubatorDubboPathToPatch = "/Users/jackieoh/Desktop/PURE/all-patches/org.apache.dubbo.rpc.protocol.dubbo.telnet.ChangeTelnetHandlerTest.testChangeServiceNotExport.patch.77";
+        String incubatorDubboLocation = "./apache.incubator-dubbo/apache.incubator-dubbo=org.apache.dubbo.rpc.protocol.dubbo.telnet.ChangeTelnetHandlerTest.testChangeServiceNotExport/apache.incubator-dubbo_output/incubator-dubbo-dubbo-rpc-dubbo-rpc-dubbo/fixer/org.apache.dubbo.rpc.protocol.dubbo.telnet.ChangeTelnetHandlerTest.testChangeServiceNotExport.patch.77";
 
         Patch patch = new Patch(incubatorDubboPathToPatch, incubatorDubboLocation, OPEN_SOURCE_REPOSITORY_DIRECTORY);
 
@@ -109,5 +109,21 @@ public class PatchTest {
         assertEquals("test_max_buf", patch.getFlaky());
 
         assertFalse(patch.applyPatch());
+    }
+
+    @Test
+    public void testPatchConstructorFastjsonInlineSuccess() {
+        String incubatorDubboPathToPatch = "/Users/jackieoh/Desktop/PURE/all-patches/com.alibaba.json.bvt.serializer.MaxBufSizeTest.test_max_buf.patch.175";
+        String incubatorDubboLocation = "/alibaba.fastjson/alibaba-fastjson=com.alibaba.json.bvt.serializer.MaxBufSizeTest.test_max_buf/alibaba.fastjson_output/fastjson/fixer/com.alibaba.json.bvt.serializer.MaxBufSizeTest.test_max_buf.patch.175";
+
+        Patch patch = new Patch(incubatorDubboPathToPatch, incubatorDubboLocation, OPEN_SOURCE_REPOSITORY_DIRECTORY);
+
+        assertEquals("/Users/jackieoh/Desktop/PURE/openSourceRepositories/fastjson/src/test/java/com/alibaba/json/bvt/serializer/MaxBufSizeTest.java", patch.getPathToFile());
+        assertEquals(Patch.Status.INLINE_SUCCESS, patch.getStatus());
+        assertEquals("alibaba/fastjson", patch.getSlug());
+        assertEquals("test_max_buf", patch.getFlaky());
+
+        assertTrue(patch.applyPatch());
+        assertTrue(patch.undoPatch());
     }
 }

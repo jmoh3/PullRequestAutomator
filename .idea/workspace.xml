@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fbd40416-5ac0-480b-8e74-7109fd266708" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Patch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Patch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/RunPatch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/example/PatchTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/PatchTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/example/PatchTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/example/PatchTest.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -39,7 +41,7 @@
           <entry key="class" value="4" />
           <entry key="gitignore" value="3" />
           <entry key="iml" value="1" />
-          <entry key="java" value="15" />
+          <entry key="java" value="16" />
           <entry key="java&#9;2019-03-20" value="2" />
           <entry key="md" value="1" />
           <entry key="patch" value="1" />
@@ -51,7 +53,7 @@
         <counts>
           <entry key="CLASS" value="4" />
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="15" />
+          <entry key="JAVA" value="16" />
           <entry key="Markdown" value="1" />
           <entry key="PATCH" value="1" />
           <entry key="PLAIN_TEXT" value="12" />
@@ -62,7 +64,7 @@
         <counts>
           <entry key="dummy" value="12" />
           <entry key="gitignore" value="29" />
-          <entry key="java" value="16542" />
+          <entry key="java" value="16736" />
           <entry key="md" value="1104" />
           <entry key="txt" value="1240" />
           <entry key="xml" value="97" />
@@ -70,7 +72,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="16542" />
+          <entry key="JAVA" value="16736" />
           <entry key="Markdown" value="1104" />
           <entry key="PLAIN_TEXT" value="1281" />
           <entry key="XML" value="97" />
@@ -84,8 +86,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="210">
-                <caret line="14" column="19" lean-forward="true" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+              <first_editor relative-caret-position="-47">
+                <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
               </first_editor>
               <second_editor />
             </state>
@@ -95,8 +97,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/Patch.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="79" selection-start-line="79" selection-end-line="79" />
+            <state relative-caret-position="160">
+              <caret line="78" selection-start-line="78" selection-end-line="78" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#4680#4688#0" expanded="true" />
@@ -124,11 +126,20 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/RunPatch.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/example/PatchTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1680">
-              <caret line="112" column="5" lean-forward="true" selection-start-line="112" selection-start-column="5" selection-end-line="112" selection-end-column="5" />
+            <state relative-caret-position="594">
+              <caret line="127" column="5" lean-forward="true" selection-start-line="127" selection-start-column="5" selection-end-line="127" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -183,14 +194,14 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/Patch.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/RunPatch.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/example/PatchTest.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
-    <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="826" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -274,7 +285,7 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/jackieoh/IdeaProjects/PullRequestAutomator/src/main/java/com/example/PullRequestAutomator.java" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554837883825" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554841009090" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.40804598" />
@@ -292,7 +303,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.PatchTest">
+  <component name="RunManager" selected="JUnit.PatchTest.testPatchConstructorFastjsonInlineSuccess">
     <configuration name="PatchTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PullRequestAutomator" />
       <extension name="coverage">
@@ -355,7 +366,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PatchTest.testSecondPatchConstructorDubbo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PatchTest.testPatchConstructorFastjsonInlineSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PullRequestAutomator" />
       <extension name="coverage">
         <pattern>
@@ -365,26 +376,26 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.example" />
       <option name="MAIN_CLASS_NAME" value="com.example.PatchTest" />
-      <option name="METHOD_NAME" value="testSecondPatchConstructorDubbo" />
+      <option name="METHOD_NAME" value="testPatchConstructorFastjsonInlineSuccess" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.PatchTest.testSecondPatchConstructorDubbo" />
       <item itemvalue="JUnit.PatchTest.testPatchConstructorFastjson" />
       <item itemvalue="JUnit.PatchTest.testPatchConstructorDubbo" />
       <item itemvalue="JUnit.PatchTest.parsePackageNameAlibaba" />
       <item itemvalue="JUnit.PatchTest" />
+      <item itemvalue="JUnit.PatchTest.testPatchConstructorFastjsonInlineSuccess" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.PatchTest" />
+        <item itemvalue="JUnit.PatchTest.testPatchConstructorFastjsonInlineSuccess" />
         <item itemvalue="JUnit.PatchTest.testPatchConstructorDubbo" />
+        <item itemvalue="JUnit.PatchTest" />
         <item itemvalue="JUnit.PatchTest.parsePackageNameAlibaba" />
         <item itemvalue="JUnit.PatchTest.testPatchConstructorFastjson" />
-        <item itemvalue="JUnit.PatchTest.testSecondPatchConstructorDubbo" />
       </list>
     </recent_temporary>
   </component>
@@ -501,35 +512,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="PatchTest_testPatchConstructorFastjson - 2019.04.09 at 13h 52m 20s.xml">
-      <configuration name="PatchTest.testPatchConstructorFastjson" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PatchTest_testPatchConstructorDubbo - 2019.04.09 at 13h 52m 27s.xml">
+    <history-entry file="PatchTest_testPatchConstructorDubbo - 2019.04.09 at 14h 53m 49s.xml">
       <configuration name="PatchTest.testPatchConstructorDubbo" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PatchTest_testPatchConstructorDubbo - 2019.04.09 at 13h 53m 00s.xml">
+    <history-entry file="PatchTest_testPatchConstructorDubbo - 2019.04.09 at 14h 54m 28s.xml">
       <configuration name="PatchTest.testPatchConstructorDubbo" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PatchTest_parsePackageNameAlibaba - 2019.04.09 at 13h 54m 28s.xml">
-      <configuration name="PatchTest.parsePackageNameAlibaba" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PatchTest_parsePackageNameAlibaba - 2019.04.09 at 13h 59m 02s.xml">
-      <configuration name="PatchTest.parsePackageNameAlibaba" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PatchTest_testPatchConstructorDubbo - 2019.04.09 at 13h 59m 36s.xml">
+    <history-entry file="PatchTest_testPatchConstructorDubbo - 2019.04.09 at 14h 59m 59s.xml">
       <configuration name="PatchTest.testPatchConstructorDubbo" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PatchTest_testPatchConstructorDubbo - 2019.04.09 at 14h 00m 38s.xml">
+    <history-entry file="PatchTest_testPatchConstructorDubbo - 2019.04.09 at 15h 00m 25s.xml">
       <configuration name="PatchTest.testPatchConstructorDubbo" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PatchTest_testPatchConstructorDubbo - 2019.04.09 at 14h 01m 13s.xml">
+    <history-entry file="PatchTest_testPatchConstructorDubbo - 2019.04.09 at 15h 00m 58s.xml">
       <configuration name="PatchTest.testPatchConstructorDubbo" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PatchTest_testPatchConstructorDubbo - 2019.04.09 at 14h 01m 31s.xml">
-      <configuration name="PatchTest.testPatchConstructorDubbo" configurationId="JUnit" />
+    <history-entry file="PatchTest_testPatchConstructorFastjsonInlineSuccess - 2019.04.09 at 15h 04m 29s.xml">
+      <configuration name="PatchTest.testPatchConstructorFastjsonInlineSuccess" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PatchTest_testPatchConstructorDubbo - 2019.04.09 at 14h 01m 57s.xml">
-      <configuration name="PatchTest.testPatchConstructorDubbo" configurationId="JUnit" />
+    <history-entry file="PatchTest_testPatchConstructorFastjsonInlineSuccess - 2019.04.09 at 15h 04m 56s.xml">
+      <configuration name="PatchTest.testPatchConstructorFastjsonInlineSuccess" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PatchTest_testPatchConstructorFastjsonInlineSuccess - 2019.04.09 at 15h 05m 41s.xml">
+      <configuration name="PatchTest.testPatchConstructorFastjsonInlineSuccess" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PatchTest_testPatchConstructorFastjsonInlineSuccess - 2019.04.09 at 15h 07m 22s.xml">
+      <configuration name="PatchTest.testPatchConstructorFastjsonInlineSuccess" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PatchTest_testPatchConstructorFastjsonInlineSuccess - 2019.04.09 at 15h 10m 37s.xml">
+      <configuration name="PatchTest.testPatchConstructorFastjsonInlineSuccess" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -543,9 +554,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32761088" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.32761088" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -554,7 +564,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32891566" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32409638" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30722892" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -715,8 +725,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="210">
-            <caret line="14" column="19" lean-forward="true" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+          <first_editor relative-caret-position="-47">
+            <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
           </first_editor>
           <second_editor />
         </state>
@@ -724,8 +734,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/Patch.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="79" selection-start-line="79" selection-end-line="79" />
+        <state relative-caret-position="160">
+          <caret line="78" selection-start-line="78" selection-end-line="78" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#4680#4688#0" expanded="true" />
@@ -752,10 +762,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/RunPatch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/example/PatchTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1680">
-          <caret line="112" column="5" lean-forward="true" selection-start-line="112" selection-start-column="5" selection-end-line="112" selection-end-column="5" />
+        <state relative-caret-position="594">
+          <caret line="127" column="5" lean-forward="true" selection-start-line="127" selection-start-column="5" selection-end-line="127" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
