@@ -24,6 +24,8 @@ public class Patch {
     /** Repo coordinates. */
     private String slug;
 
+    private String projectName;
+
     /** Actual patch (diff output to apply). */
     private String diff;
     /** Path to patch file. */
@@ -68,14 +70,15 @@ public class Patch {
      *
      * @param pathToPatch path to patch file.
      * @param patchLocation patch location (in pre-determined format)
-     * @param pathToLocalRepo path to local repo.
+     * @param pathToRepoDir path to local repo.
      */
-    public Patch(String pathToPatch, String patchLocation, String pathToLocalRepo) {
+    public Patch(String pathToPatch, String patchLocation, String pathToRepoDir) {
         HashMap<String, String> parsedInfo = parsePackageFilePath(patchLocation);
 
         this.pathToPatch = pathToPatch;
         this.slug = parsedInfo.get("slug");
-        this.pathToFile = findPathToFile(pathToLocalRepo, parsedInfo.get("module"), parsedInfo.get("filepathWithinModule"));
+
+        this.pathToFile = findPathToFile(pathToRepoDir + "/" + parsedInfo.get("projectName"), parsedInfo.get("module"), parsedInfo.get("filepathWithinModule"));
         this.flaky = parsedInfo.get("test");
 
         readPatch(pathToPatch);
@@ -104,6 +107,9 @@ public class Patch {
                 foundModulePath = newFilePath;
                 startIndex = endIndex;
                 endIndex = splitModulePath.size();
+                if (moduleFile.isDirectory()) {
+                    String[] fileList = moduleFile.list();
+                }
             } else {
                 endIndex -= 1;
             }
@@ -111,7 +117,7 @@ public class Patch {
 
         foundModulePath += "/src/test/java/" + String.join("/", pathWithinModule.split("\\.")) + ".java";
 
-        System.out.println(foundModulePath);
+        System.out.println("Path to file: " + foundModulePath);
 
         return foundModulePath;
     }
@@ -196,7 +202,7 @@ public class Patch {
             }
             reader.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Error reading patch.");
         }
     }
 
@@ -428,13 +434,14 @@ public class Patch {
 
         HashMap<String, String> packageMap = new HashMap<String, String>();
 
+        packageMap.put("projectName", projectName);
         packageMap.put("slug", slug);
         packageMap.put("module", moduleName);
         packageMap.put("test", testName);
         packageMap.put("filepathWithinModule", filePathWithinModule);
 
         for (String key : packageMap.keySet()) {
-            System.out.println(key);
+            System.out.print(key + ": ");
             System.out.println(packageMap.get(key));
         }
 
