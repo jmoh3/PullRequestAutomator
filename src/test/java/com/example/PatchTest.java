@@ -32,13 +32,6 @@ public class PatchTest {
     }
 
     @Test
-    public void testApplyPatchSuccess() {
-        Patch patch = new Patch("/Users/jackieoh/IdeaProjects/adventure/src/com/example/GithubPRPatch.patch",  "/Users/jackieoh/IdeaProjects/adventure/src/com/example/GithubPullRequestTest.java");
-        assertTrue(patch.applyPatch());
-        assertTrue(patch.undoPatch());
-    }
-
-    @Test
     public void parsePackageNameApache() {
         String incubatorDubboPath = "./apache.incubator-dubbo/apache.incubator-dubbo=org.apache.dubbo.rpc.protocol.dubbo.telnet.PortTelnetHandlerTest.testListAllPort/apache.incubator-dubbo_output/incubator-dubbo-dubbo-rpc-dubbo-rpc-dubbo/fixer/org.apache.dubbo.rpc.protocol.dubbo.telnet.PortTelnetHandlerTest.testListAllPort.patch.5";
 
@@ -124,6 +117,6 @@ public class PatchTest {
         assertEquals("test_max_buf", patch.getFlaky());
 
         assertTrue(patch.applyPatch());
-//        assertTrue(patch.undoPatch());
+        assertTrue(patch.undoPatch());
     }
 }

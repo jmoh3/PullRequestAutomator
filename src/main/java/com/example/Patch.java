@@ -15,6 +15,8 @@ public class Patch {
      */
     enum Status {  INLINE_FAIL, INLINE_SUCCESS, NO_CLEANERS };
 
+    private static final int LINE_NUMBER_OFFSET = -1;
+
     /** Status of patch. */
     private Status status;
 
@@ -161,7 +163,7 @@ public class Patch {
 
                             if (splitLineNumber.length > 0) {
                                 this.lineNumber = Integer.parseInt(splitLineNumber[0]);
-                                int newLineNumber = this.lineNumber - 1;
+                                int newLineNumber = this.lineNumber + LINE_NUMBER_OFFSET;
                                 line = line.replace(splitLineNumber[0], Integer.toString(newLineNumber));
                                 System.out.println(line);
                             }
