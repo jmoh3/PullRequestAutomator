@@ -50,6 +50,23 @@ public class Patch {
     private boolean applied = false;
 
     /**
+     * Constructor that only accepts a path to the patch.
+     *
+     * @param pathToPatch path to patch file.
+     */
+    Patch(String pathToPatch) {
+        this.pathToPatch = pathToPatch;
+
+        String[] splitFileName = pathToPatch.split("/");
+
+        this.flaky = splitFileName[splitFileName.length - 1].replaceAll(".patch", "");
+
+        this.diff = "";
+
+        readPatch(pathToPatch);
+    }
+
+    /**
      * Creates a patch object for a patch file.
      *
      * @param pathToPatch name of patch file being parsed.
@@ -81,11 +98,18 @@ public class Patch {
 
         this.pathToPatch = pathToPatch;
         this.slug = parsedInfo.get("slug");
+        this.flaky = parsedInfo.get("test");
+        readPatch(pathToPatch);
 
         this.pathToFile = findPathToFile(pathToRepoDir + "/" + parsedInfo.get("projectName"), parsedInfo.get("module"), parsedInfo.get("filepathWithinModule"));
-        this.flaky = parsedInfo.get("test");
+    }
 
-        readPatch(pathToPatch);
+    public void init(String patchLocation, String pathToRepoDir) {
+        HashMap<String, String> parsedInfo = parsePackageFilePath(patchLocation);
+
+        this.pathToFile = findPathToFile(pathToRepoDir + "/" + parsedInfo.get("projectName"), parsedInfo.get("module"), parsedInfo.get("filepathWithinModule"));
+        this.slug = parsedInfo.get("slug");
+        this.flaky = parsedInfo.get("test");
     }
 
 
@@ -121,7 +145,7 @@ public class Patch {
 
         foundModulePath += "/src/test/java/" + String.join("/", pathWithinModule.split("\\.")) + ".java";
 
-        System.out.println("Path to file: " + foundModulePath);
+//        System.out.println("Path to file: " + foundModulePath);
 
         return foundModulePath;
     }
@@ -142,7 +166,7 @@ public class Patch {
         try {
             reader = new BufferedReader(new FileReader(pathToPatch));
             writer = new BufferedWriter(new FileWriter(tmpFileName));
-            System.out.println(tmpFileName);
+//            System.out.println(tmpFileName);
 
             boolean readingDiff = false;
 
@@ -165,7 +189,7 @@ public class Patch {
                                 this.lineNumber = Integer.parseInt(splitLineNumber[0]);
                                 int newLineNumber = this.lineNumber + LINE_NUMBER_OFFSET;
                                 line = line.replace(splitLineNumber[0], Integer.toString(newLineNumber));
-                                System.out.println(line);
+//                                System.out.println(line);
                             }
                         }
                     }
@@ -208,6 +232,7 @@ public class Patch {
                     }
 
                     if (splitString[0].equals("POLLUTER")) {
+                        System.out.println(splitString[1]);
                         this.polluter = splitString[1];
                     }
 
@@ -216,11 +241,12 @@ public class Patch {
                 line = reader.readLine();
             }
             reader.close();
-            System.out.println(this.diff);
+//            System.out.println(this.diff);
             writer.write(this.diff);
             writer.close();
 
         } catch (IOException e) {
+            e.printStackTrace();
             System.out.println("Error reading patch.");
         }
     }
@@ -456,13 +482,8 @@ public class Patch {
         packageMap.put("projectName", projectName);
         packageMap.put("slug", slug);
         packageMap.put("module", moduleName);
-        packageMap.put("test", testName);
+        packageMap.put("test", filePathWithinModule + "." + testName);
         packageMap.put("filepathWithinModule", filePathWithinModule);
-
-        for (String key : packageMap.keySet()) {
-            System.out.print(key + ": ");
-            System.out.println(packageMap.get(key));
-        }
 
         return packageMap;
     }
