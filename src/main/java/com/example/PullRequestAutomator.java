@@ -95,7 +95,7 @@ public class PullRequestAutomator {
      * @param base base branch (to merge into, typically master).
      * @param newBranch new branch.
      * @param repoCoordinates repo coordinates.
-     * @param
+     * @param credentialsPath path to credentials file.
      */
     PullRequestAutomator(Patch patch, String repoPathToFile, String base, String newBranch,
                          String repoCoordinates, String credentialsPath) {

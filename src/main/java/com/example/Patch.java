@@ -30,6 +30,8 @@ public class Patch {
     private String diff;
     /** Path to patch file. */
     private String pathToPatch;
+    /** Path to temporary modified patchfile. */
+    private String pathToTmpPatch;
     /** Starting line number where insertion takes place. */
     private int lineNumber;
 
@@ -129,9 +131,16 @@ public class Patch {
      */
     public void readPatch(String pathToPatch) {
         BufferedReader reader;
+        String tmpFileName = pathToPatch + ".tmp";
+        this.pathToTmpPatch = tmpFileName;
+
+        BufferedReader br = null;
+        BufferedWriter writer;
 
         try {
             reader = new BufferedReader(new FileReader(pathToPatch));
+            writer = new BufferedWriter(new FileWriter(tmpFileName));
+            System.out.println(tmpFileName);
 
             boolean readingDiff = false;
 
@@ -139,7 +148,6 @@ public class Patch {
             while (line != null) {
 
                 if (readingDiff)  {
-                    this.diff += line + "\n";
 
                     // Parses line number.
                     if (line.length() > 2 && line.substring(0, 2).equals("@@")) {
@@ -153,10 +161,14 @@ public class Patch {
 
                             if (splitLineNumber.length > 0) {
                                 this.lineNumber = Integer.parseInt(splitLineNumber[0]);
+                                int newLineNumber = this.lineNumber - 1;
+                                line = line.replace(splitLineNumber[0], Integer.toString(newLineNumber));
+                                System.out.println(line);
                             }
                         }
                     }
 
+                    this.diff += line + "\n";
                     line = reader.readLine();
                     continue;
                 }
@@ -164,6 +176,7 @@ public class Patch {
                 // Indicates start of diff.
                 if (line.equals("=========================="))  {
                     readingDiff = true;
+                    this.diff = "";
 
                     line = reader.readLine();
                     continue;
@@ -201,6 +214,10 @@ public class Patch {
                 line = reader.readLine();
             }
             reader.close();
+            System.out.println(this.diff);
+            writer.write(this.diff);
+            writer.close();
+
         } catch (IOException e) {
             System.out.println("Error reading patch.");
         }
@@ -305,7 +322,7 @@ public class Patch {
 
         File cwd = new File("").getAbsoluteFile();
 
-        ProcessBuilder processBuilder = new ProcessBuilder("patch", "-p0", this.pathToFile, this.pathToPatch);
+        ProcessBuilder processBuilder = new ProcessBuilder("patch", "-p0", this.pathToFile, this.pathToTmpPatch);
         processBuilder.redirectErrorStream(true);
 
         processBuilder.directory(cwd);
@@ -342,7 +359,7 @@ public class Patch {
 
         File cwd = new File("").getAbsoluteFile();
 
-        ProcessBuilder processBuilder = new ProcessBuilder("patch", "-R", "-p0", this.pathToFile, this.pathToPatch);
+        ProcessBuilder processBuilder = new ProcessBuilder("patch", "-R", "-p0", this.pathToFile, this.pathToTmpPatch);
         processBuilder.redirectErrorStream(true);
 
         processBuilder.directory(cwd);
