@@ -63,6 +63,18 @@ public class RunPatch {
 
                     Git git = new Git(repo);
                     git.checkout().setName(commitId).call();
+
+                    // modify POM.xml so open source project works with iDFlakies
+                    ProcessBuilder processBuilder = new ProcessBuilder("/Users/jackieoh/IdeaProjects/PullRequestAutomator/pom-modify/modify-project.sh", REPO_DIRECTORY + "/" + projectName);
+
+                    processBuilder.redirectErrorStream(true);
+
+                    Process process = null;
+
+                    process = processBuilder.start();
+                    process.waitFor();
+                    System.out.println("Added iDFlakies to pom.xml");
+
                     alreadyCheckedOut.add(projectName);
                 } catch (Exception e) {
                     System.out.println("could not checkout correct commit id");
@@ -71,9 +83,6 @@ public class RunPatch {
 
             // initialize patch now that we have repo started
             patch.init(patchLocation, REPO_DIRECTORY);
-
-            // modify POM.xml so open source project works with iDFlakies
-//            ProcessBuilder processBuilder = new ProcessBuilder("/Users/jackieoh/IdeaProjects/PullRequestAutomator/pom-modify/modify-project.sh");
 
             // get polluter and flaky test from patch
             String polluter = patch.getPolluter();
@@ -96,6 +105,13 @@ public class RunPatch {
         }
     }
 
+    /**
+     * Finds the patch location given its name and the location of the patch-locations file.
+     *
+     * @param patchName name of patch.
+     * @param patchLocationFilename path to patch-locations.
+     * @return patch location
+     */
     private static String findPatchLocation(String patchName, String patchLocationFilename) {
 
         try {
@@ -120,6 +136,13 @@ public class RunPatch {
         return null;
     }
 
+    /**
+     * Gets the correct commit ID of a repo from a csv of commit ids.
+     *
+     * @param slug repo coordinates.
+     * @param commitIdCsv filepath to csv of commit ids.
+     * @return commit id.
+     */
     private static String getCommitId(String slug, String commitIdCsv) {
         try {
             BufferedReader reader = new BufferedReader(new FileReader(commitIdCsv));
