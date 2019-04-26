@@ -13,13 +13,8 @@ public class TestRunResultTest {
 
     @Test
     public void testParsing() {
-        Gson gson = new Gson();
-        TestRunResult result = gson.fromJson(EXAMPLE_JSON, TestRunResult.class);
+        ResultParser parser = new ResultParser("/Users/jackieoh/Desktop/PURE/output/example.json");
 
-        System.out.println(result.getResults().keySet());
-
-        for (String key : result.getResults().keySet()) {
-            System.out.println(result.getResults().get(key).getTime());
-        }
+        System.out.println(parser.getTimeForTest("org.apache.dubbo.rpc.cluster.router.tag.TagRouterTest.testRoute_requestWithTag_shouldDowngrade"));
     }
 }

@@ -129,6 +129,8 @@ public class RunPatch {
             }
 
             // record result
+            ResultParser beforeParser = new ResultParser("/Users/jackieoh/Desktop/PURE/output/" + patchFilename + ".beforepatch" +".json");
+            ResultParser afterParser = new ResultParser("/Users/jackieoh/Desktop/PURE/output/\" + patchFilename + \".afterpatch\" +\".json");
 
             // undo patch
             System.out.println(patch.undoPatch());

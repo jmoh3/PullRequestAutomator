@@ -264,7 +264,7 @@ public class PullRequestAutomator {
      * @return String of contents of file.
      * @throws Exception
      */
-    private String readFileAsString(String fileName) throws Exception {
+    public static String readFileAsString(String fileName) throws Exception {
         String data = "";
         try {
             data = new String(Files.readAllBytes(Paths.get(fileName)));
