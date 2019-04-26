@@ -1,12 +1,11 @@
 package com.example;
 
+import org.apache.commons.io.IOUtils;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.io.*;
 import java.util.*;
 
 public class RunPatch {
@@ -78,6 +77,7 @@ public class RunPatch {
                     alreadyCheckedOut.add(projectName);
                 } catch (Exception e) {
                     System.out.println("could not checkout correct commit id");
+                    continue;
                 }
             }
 
@@ -91,11 +91,42 @@ public class RunPatch {
             System.out.println(flaky);
 
             // run polluter then victim in isolation and check to make sure it fails
+            ProcessBuilder runTestsProcessBuilder = new ProcessBuilder("sh", "/Users/jackieoh/IdeaProjects/PullRequestAutomator/scripts/runTests.sh", REPO_DIRECTORY + "/" + projectName, polluter, flaky, patchFilename + ".beforepatch");
+            runTestsProcessBuilder.redirectErrorStream(true);
+
+            Process process = null;
+
+            try {
+                process = runTestsProcessBuilder.start();
+
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                PrintStream printStream = new PrintStream(byteArrayOutputStream);
+                IOUtils.copy(process.getInputStream(), printStream);
+                process.waitFor();
+
+                String message = byteArrayOutputStream.toString();
+
+                System.out.println(message);
+            } catch (Exception e) {
+                System.out.println(e.toString());
+                System.out.println("HERE");
+            }
 
             // apply patch
             System.out.println(patch.applyPatch());
 
             // measure time it takes to run new test method (run it 5 times)
+            runTestsProcessBuilder = new ProcessBuilder("sh", "/Users/jackieoh/IdeaProjects/PullRequestAutomator/scripts/runTests.sh", REPO_DIRECTORY + "/" + projectName, polluter, flaky, patchFilename + ".afterpatch");
+
+            process = null;
+
+            try {
+                process = runTestsProcessBuilder.start();
+                process.waitFor();
+            } catch (Exception e) {
+                System.out.println(e.toString());
+                System.out.println("HERE");
+            }
 
             // record result
 

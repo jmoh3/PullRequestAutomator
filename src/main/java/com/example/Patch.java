@@ -99,6 +99,7 @@ public class Patch {
         this.pathToPatch = pathToPatch;
         this.slug = parsedInfo.get("slug");
         this.flaky = parsedInfo.get("test");
+        this.projectName = parsedInfo.get("projectName");
         readPatch(pathToPatch);
 
         this.pathToFile = findPathToFile(pathToRepoDir + "/" + parsedInfo.get("projectName"), parsedInfo.get("module"), parsedInfo.get("filepathWithinModule"));
@@ -252,6 +253,15 @@ public class Patch {
     }
 
     /**
+     * Gets name of project.
+     *
+     * @return project name.
+     */
+    public String getProjectName() {
+        return this.projectName;
+    }
+
+    /**
      * Gets path to file where patch is to be applied.
      * @return path to file.
      */
@@ -380,6 +390,11 @@ public class Patch {
         }
     }
 
+    /**
+     * Undoes a patch.
+     *
+     * @return true on success, false otherwise.
+     */
     public boolean undoPatch() {
         if (!this.applied) {
             return false;
